@@ -2,6 +2,7 @@
 Môn Nguyên lý ngôn ngữ lập trình - Trường Đại học Bách Khoa HCM.
 ## Reference Video Course
 [Tổng hợp clip thầy Nguyễn Hứa Phùng](https://www.youtube.com/channel/UC2O3XSSQCgHTn0xQvgGlg-w/playlists)
+
 ## Tables of Contents
 
 ### Lectures
@@ -30,3 +31,7 @@ Language is implemented: [BKIT Language](./Assignment/Assignment1/BKIT2009Specif
 + [Assignment 2](./Assignment/Assignment2) - Hiện thực cây AST cho ngôn ngữ BKIT
 + [Assignment 3](./Assignment/Assignment3) - Phân tích ngữ nghĩa cho ngôn ngữ BKIT
 + [Assignment 4](./Assignment/Assignment4) - Sinh mã Jasmin cho ngôn ngữ BKIT
+
+
+## Revision
+[Link gg drive](https://drive.google.com/drive/folders/1YxIwIjo9oTFC9vNdI_m8jwfKivzrjBUz?usp=sharing)
