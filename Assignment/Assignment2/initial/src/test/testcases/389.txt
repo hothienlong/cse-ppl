@@ -1,0 +1,25 @@
+ Function: hmmOkmsa
+        Body:
+                    For (cajoon = 1231 + -11 == False, 3, foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]]) Do
+                        diffLen = len(arrA) - len(arrB);
+                        sum = sum + arrA[i] + arrB[i];
+                    EndFor.
+                
+                Do
+                    tmp = read();
+                    Return 2;
+                    If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                While a <= 4 EndDo.
+            
+                    For (adamLevine = c <. 4.5, c <. 4.5, 1.2e-1) Do
+                        tmp = read();
+                        If tmp % 2 != 0 Then Continue; EndIf.
+                    EndFor.
+                
+        EndBody. 

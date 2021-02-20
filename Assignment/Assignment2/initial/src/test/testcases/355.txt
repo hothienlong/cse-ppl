@@ -1,0 +1,14 @@
+ Var: x=4;
+    Function: func1
+        Body:
+                While 3520 Do
+                    barrr(myArr[2][3][4]);
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    tmp = read();
+                EndWhile.
+            
+        EndBody.
+        Function: func1
+            Body:
+            writeln("Ten day du cua ban la : ",name," ",surname);
+        EndBody. 

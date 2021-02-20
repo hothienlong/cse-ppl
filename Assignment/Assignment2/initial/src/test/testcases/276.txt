@@ -1,0 +1,12 @@
+
+                  Function: funny
+                  Parameter: this, is, a, chuahe
+                  Body:
+                      str = "string";
+                      z = y + "one illegal string\m";
+                  EndBody.
+                  Function: anotherFunction
+                  Body:
+                      tt = str * bkit(this, is, a, chuahe);
+                  EndBody.
+                  

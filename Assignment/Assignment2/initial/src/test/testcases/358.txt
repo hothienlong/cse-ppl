@@ -1,0 +1,10 @@
+ Var: x=4;
+    Function: bar
+        Body:
+                While func(3) Do
+                    getArray();
+                    diffLen = len(arrA) - len(arrB);
+                    tmp = read();
+                EndWhile.
+            
+        EndBody. 

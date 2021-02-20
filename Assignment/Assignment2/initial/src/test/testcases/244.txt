@@ -1,0 +1,7 @@
+Function: fail
+                    Body:
+                        While (i < 5) Do
+                            Var: a = 2;
+                            a = 3;
+                        EndWhile.
+                    EndBody.

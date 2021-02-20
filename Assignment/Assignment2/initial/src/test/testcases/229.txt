@@ -1,0 +1,8 @@
+ Var: x;
+                    Function: fact
+                    Parameter:  arr[], x
+                    Body:
+                        f = func(2.2,3) ;
+                        Var: r = 10., v;
+                        v = (4. \. 3.) *. 3.14 *. r *. r *. r;
+                    EndBody.

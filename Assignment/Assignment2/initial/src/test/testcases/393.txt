@@ -1,0 +1,28 @@
+ Function: func1
+        Body:
+                    For (thanhToan = func(1)[1] * 2, c <. 4.5, 10e-11) Do
+                        While func(3) Do
+                    getArray();
+                    diffLen = len(arrA) - len(arrB);
+                    tmp = read();
+                EndWhile.
+                        sum = sum + arrA[i] + arrB[i];
+                    EndFor.
+                
+                    For (func1 = c <. 4.5, 3, func(3)) Do
+                        Return;
+                        x = a+1 < (2 < 3);
+                    EndFor.
+                
+                    While (3-2) == 1+2*test(1) Do
+                        getArray();
+                        a[3 + foo(2)] = a[b[2][3]] + 4;
+                    EndWhile.
+                
+                Do
+                    Return 2;
+                    a[2] =foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]];
+                    Return 1;
+                While x + 5 == True EndDo.
+            
+        EndBody. 

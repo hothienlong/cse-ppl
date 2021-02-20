@@ -1,0 +1,6 @@
+Var: ko = "09051508";
+                    Function: hello                    
+                    Body:
+                        Varr x = 2, y = 3;
+                    EndBody.
+                

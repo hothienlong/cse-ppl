@@ -1,0 +1,1 @@
+Program([VarDecl(Id(ans)),FuncDecl(Id(func1)[],([][While(BinaryOp(<.,Id(c),FloatLiteral(4.5)),[],[CallStmt(Id(barrr),[ArrayCell(Id(myArr),[IntLiteral(2),IntLiteral(3),IntLiteral(4)])]),Assign(Id(string),StringLiteral(test function with string)),Assign(Id(sum),BinaryOp(+,BinaryOp(+,Id(sum),ArrayCell(Id(arrA),[Id(i)])),ArrayCell(Id(arrB),[Id(i)])))])]))])

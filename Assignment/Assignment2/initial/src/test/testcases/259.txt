@@ -1,0 +1,6 @@
+ Var: a, b = 2, c = -1;
+                    Function: true
+                    Body:
+                       Var: b = 2+3;
+                    EndBody.             
+                    

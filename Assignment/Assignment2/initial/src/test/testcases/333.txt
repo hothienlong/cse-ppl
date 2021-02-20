@@ -1,0 +1,13 @@
+ Function: cajoon
+        Body:
+
+                Return y + (multi(x-1, y));
+                diffLen = len(arrA) - len(arrB);
+                If (piano + c <. 4.5) Then
+                    Return 1;
+                Else
+                    hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    tmp = read();
+                EndIf.
+            
+        EndBody. 

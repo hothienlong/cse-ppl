@@ -1,0 +1,19 @@
+ Function: func1
+        Body:
+
+                arr = getArrayOfEvenNum();
+                If tmp % 2 != 0 Then Continue; EndIf.
+                If (seeSingShare + func(3)) Then
+                    arr = getArrayOfEvenNum();
+                Else
+                                If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                    diffLen = len(arrA) - len(arrB);
+                EndIf.
+            
+        EndBody. 

@@ -1,0 +1,6 @@
+Function: bigFunc
+                     Body:
+                         Var: chao, mung, ngay, phu, nu, viet, nam = 20-11;
+                         print("%s, %s, %s, %s, %s, %s, %d", chao, mung, ngay, phu, nu, viet, nam);
+                     EndBody.
+                 

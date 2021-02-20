@@ -1,0 +1,7 @@
+Function: var_follow
+                    Parameter: xyz[10]
+                        Body:
+                            var(xy[1]);
+                            Return True;
+                        EndBody.
+                    Var: x = 1;

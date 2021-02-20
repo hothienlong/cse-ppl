@@ -1,0 +1,12 @@
+ Function: nlgt
+        Body:
+                diffLen = len(arrA) - len(arrB);
+                arr = getArrayOfEvenNum();
+                If (cajoon + 3520) Then
+                    barrr(myArr[2][3][4]);
+                Else
+                    tmp = read();
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                EndIf.
+            
+        EndBody. 

@@ -1,0 +1,550 @@
+----- BKIT.g4 -------
+grammar BKIT;
+//1812869
+//chép toàn bộ vào phần đầu file
+@lexer::header {
+from lexererr import *
+}
+
+//chép toàn bộ vào phần thân file
+@lexer::members {
+def emit(self):
+    tk = self.type
+    result = super().emit()
+    if tk == self.UNCLOSE_STRING:       
+        raise UncloseString(result.text)
+    elif tk == self.ILLEGAL_ESCAPE:
+        raise IllegalEscape(result.text)
+    elif tk == self.ERROR_CHAR:
+        raise ErrorToken(result.text)
+    elif tk == self.UNTERMINATED_COMMENT:
+        raise UnterminatedComment()
+    else:
+        return result;
+}
+
+options{
+	language=Python3;
+}
+
+
+// ..........................................................................................................\\
+// ..............................................PARSER.......................................................\\
+// ..........................................................................................................\\
+program: var_dec*  func_dec* EOF;
+
+//-----variable declare
+var_dec: VAR COLON var_list SEMI;
+// var_list: (var_primitive | var_array | assign_stmt) (COMMA (var_primitive | var_array | assign_stmt))* ;
+var_list: (variable | var_assign) (COMMA (variable | var_assign))* ;
+
+variable: var_primitive | var_array ;//khác lấy index
+// var_type: var_primitive | var_array ;
+var_primitive: IDENTIFIER ;
+var_array: IDENTIFIER ('[' INTEGER_LITERAL ']')+ ;
+
+var_assign:  variable ASSIGN literal ;
+
+//-----literal
+literal
+    : INTEGER_LITERAL
+    | FLOAT_LITERAL
+    | boolean_literal
+    | STRING_LITERAL
+    | array_literal
+    ;
+
+boolean_literal: TRUE | FALSE ;
+
+array_literal: '{' (literal (',' literal)*)? '}' ;
+
+//-----function declare
+func_dec: FUNCTION COLON IDENTIFIER 
+        (PARAMETER COLON (variable (COMMA variable)*))? 
+        BODY COLON list_stmt ENDBODY '.'
+        ;
+
+
+// ..............................................STATEMENT...................................................\\
+list_stmt: var_dec* stmt* ;
+
+stmt: assign_stmt SEMI //phép gán trong khai báo ko có SEMI
+    | if_stmt
+    | for_stmt
+    | while_stmt 
+    | do_while_stmt
+    | break_stmt
+    | continue_stmt
+    | call_stmt
+    | return_stmt
+    ;
+
+
+assign_stmt: var_primitive ASSIGN exp
+           | exp ('[' exp ']')+ ASSIGN exp 
+           ;
+
+
+if_stmt: IF exp THEN list_stmt
+        (ELSEIF exp THEN list_stmt)*
+        (ELSE list_stmt)?
+        ENDIF DOT
+        ;
+
+for_stmt: FOR LP var_primitive ASSIGN exp COMMA exp COMMA exp RP DO
+                list_stmt
+          ENDFOR '.'
+          ;
+
+while_stmt: WHILE exp DO list_stmt ENDWHILE '.' ;
+
+do_while_stmt: DO list_stmt WHILE exp ENDDO '.' ;
+
+break_stmt: BREAK SEMI ;
+
+continue_stmt: CONTINUE SEMI ;
+
+call_stmt: IDENTIFIER LP (exp (COMMA exp)*)? RP SEMI ;
+
+return_stmt: RETURN exp? SEMI ;
+
+
+
+
+// ..............................................EXPRESSION..................................................\\
+//exp là các biểu thức cho toán tử bên vế phải phép ASSIGN
+//Array ko có operator -> ko có trong exp
+exp: relational_exp ;
+
+relational_exp
+    : logical_binary_exp EQUAL logical_binary_exp  //True EQUAL True
+    | logical_binary_exp NOT_EQUAL logical_binary_exp
+    | logical_binary_exp LESS_THAN logical_binary_exp
+    | logical_binary_exp GREATER_THAN logical_binary_exp
+    | logical_binary_exp LESS_EQUAL logical_binary_exp
+    | logical_binary_exp GREATER_EQUAL logical_binary_exp
+    | logical_binary_exp NOT_EQUAL_FLOAT logical_binary_exp
+    | logical_binary_exp LESS_THAN_FLOAT logical_binary_exp
+    | logical_binary_exp LESS_EQUAL_FLOAT logical_binary_exp
+    | logical_binary_exp GREATER_THAN_FLOAT logical_binary_exp
+    | logical_binary_exp GREATER_EQUAL_FLOAT logical_binary_exp
+    | logical_binary_exp
+    ;
+
+logical_binary_exp
+    : logical_binary_exp AND adding_exp
+    | logical_binary_exp OR adding_exp
+    | adding_exp
+    ;
+
+adding_exp
+    : adding_exp ADD_INT multiplying_exp  //nhân chia trước cộng trừ sau
+    | adding_exp ADD_FLOAT multiplying_exp
+    | adding_exp SUB_INT multiplying_exp
+    | adding_exp SUB_FLOAT multiplying_exp
+    | multiplying_exp
+    ;
+
+multiplying_exp
+    : multiplying_exp MUL_INT logical_unary_exp
+    | multiplying_exp MUL_FLOAT logical_unary_exp
+    | multiplying_exp DIV_INT logical_unary_exp
+    | multiplying_exp DIV_FLOAT logical_unary_exp
+    | multiplying_exp INT_REMAINDER logical_unary_exp
+    | logical_unary_exp
+    ;
+
+logical_unary_exp
+    : NOT logical_unary_exp
+    | sign_exp
+    ;
+
+sign_exp
+    : SUB_INT sign_exp 
+    | SUB_FLOAT sign_exp  
+    | index_exp
+    ;
+
+//index và func phải gọi exp vì end_exp phải có '('exp')'
+index_exp
+    : index_exp '[' exp ']' //muốn gọi biểu thức ko ()
+    | operand
+    ;
+
+
+operand
+    : IDENTIFIER
+    | literal
+    | func_call_exp
+    | '(' exp ')' //exp này phải đc ưu tiên tính trước nên có () (biểu thức trong biểu thức: a=exp=>2-exp=>2-(3+4))
+    ;
+
+
+func_call_exp
+    : IDENTIFIER '(' (exp (COMMA exp)*)? ')' 
+    ;
+
+// ..........................................................................................................\\
+// ..............................................LEXER.......................................................\\
+// ..........................................................................................................\\
+/***************Keyword BKIT***************/
+// KEYWORD
+BODY: 'Body' ;
+BREAK: 'Break' ;
+CONTINUE: 'Continue' ;
+DO: 'Do' ;
+ELSE: 'Else' ;
+ELSEIF: 'ElseIf' ;
+ENDBODY: 'EndBody' ;
+ENDIF: 'EndIf' ;
+ENDFOR: 'EndFor' ;
+ENDWHILE: 'EndWhile' ;
+FOR: 'For' ;
+FUNCTION: 'Function' ;
+IF: 'If' ;
+PARAMETER: 'Parameter' ;
+RETURN: 'Return' ;
+THEN: 'Then' ;
+VAR: 'Var' ;
+WHILE: 'While' ;
+TRUE: 'True' ;
+FALSE: 'False' ;
+ENDDO: 'EndDo' ;
+
+
+
+/***************Operator BKIT***************/
+//-----standard operator 
+ASSIGN: '=' ;
+ADD_INT: '+' ;
+ADD_FLOAT: '+.' ;
+SUB_INT: '-' ;
+SUB_FLOAT: '-.' ;
+MUL_INT: '*' ;
+MUL_FLOAT: '*.' ;
+DIV_INT: '\\' ;
+DIV_FLOAT: '\\.' ;
+INT_REMAINDER: '%' ;
+
+//-----boolean operator
+NOT: '!' ;
+AND: '&&' ;
+OR: '||' ;
+
+//-----relational operator
+EQUAL: '==' ;
+NOT_EQUAL: '!=' ;
+LESS_THAN: '<' ;
+GREATER_THAN: '>' ;
+LESS_EQUAL: '<=' ;
+GREATER_EQUAL: '>=' ;
+NOT_EQUAL_FLOAT: '=/=' ;
+LESS_THAN_FLOAT: '<.' ;
+GREATER_THAN_FLOAT: '>.' ;
+LESS_EQUAL_FLOAT: '<=.' ;
+GREATER_EQUAL_FLOAT: '>=.' ;
+
+
+/***************Separator BKIT***************/              
+// SEPARATOR: ('(' | ')' | '[' | ']' | ':' | '.' | ',' | ';' | '{' | '}') ;
+LP: '(' ;
+RP: ')' ;
+LSB: '[' ;
+LRB: ']' ;
+COLON: ':' ;
+DOT: '.' ;
+COMMA: ',' ;
+SEMI: ';' ;
+LB: '{' ;
+RB: '}' ;
+
+
+/***************Literal BKIT***************/ 
+
+//-----integer 
+fragment DEC: '0' | [1-9][0-9]* ;
+fragment HEX: '0'[xX] [1-9A-F] [0-9A-F]* ;
+fragment OCT: '0'[oO] [1-7] [0-7]* ;
+INTEGER_LITERAL: DEC | HEX | OCT ;
+
+
+//-----float//1.23e-4 (integer=1, decimal=.23, exponent=e-4)
+fragment DIGIT: [0-9] ;
+fragment EXPONENT: [eE] [+-]? DIGIT+ ;
+FLOAT_LITERAL: ((DIGIT+ '.' DIGIT*)  EXPONENT?)
+        | (DIGIT+  EXPONENT) ;
+    
+
+
+
+
+
+/***************String BKIT***************///đang tới trường hợp ko " trong string
+fragment ESCAPE_SEQUENCES: ESCAPE_SEQUENCES_BACKSLASH | ESCAPE_SEQUENCES_SINGLEQUOTE ;//hợp lệ
+fragment ESCAPE_SEQUENCES_BACKSLASH: '\\' [bfrnt'\\] ;
+fragment ESCAPE_SEQUENCES_SINGLEQUOTE: ['] ["] ;
+fragment POSTFIX_ESCAPE_SEQUENCES_BACKSLASH: [bfrnt'\\] ;
+fragment POSTFIX_ESCAPE_SEQUENCES_SINGLEQUOTE: ["] ;
+fragment NOT_POSTFIX_ESCAPE_SEQUENCES_BACKSLASH: ~[bfrnt'\\] ;
+fragment NOT_POSTFIX_ESCAPE_SEQUENCES_SINGLEQUOTE: ~["] ;
+fragment STRING_CHAR: ~["'\b\f\r\n\\] | ESCAPE_SEQUENCES ;
+//có ' phải có " theo sau ko sẽ illegal vì có thể đứng trước " của string, ' đứng một mình là \'
+STRING_LITERAL: '"' STRING_CHAR* '"' //
+{
+    #cắt từ 1->length-2
+    self.text = self.text[1:-1]
+};
+
+UNCLOSE_STRING: '"' STRING_CHAR* (['\b\f\r\n\\] | EOF) //(ESCAPE_SEQUENCES | ~["'\\])*
+{
+    imposible = ["'",'\b','\f','\r','\n','\\']
+    if(self.text[-1] in imposible): #EOF?
+        raise UncloseString(self.text[1:-1])
+    else:
+        raise UncloseString(self.text[1:])
+} ;//đã là string thì mới illegal in string
+
+ILLEGAL_ESCAPE: '"' STRING_CHAR* (([\\] NOT_POSTFIX_ESCAPE_SEQUENCES_BACKSLASH?) | (['] NOT_POSTFIX_ESCAPE_SEQUENCES_SINGLEQUOTE?)) .*? '"'
+{
+		for x in range(len(self.text)):
+			if self.text[x] == '\\':
+	  			if (self.text[x+1] == 'b') or (self.text[x+1] == 'f') or (self.text[x+1] == 'r'):
+				    continue
+	  			elif (self.text[x+1] == 'n') or (self.text[x+1] == 't') or (self.text[x+1] == '\'') or (self.text[x+1] == '\\'):
+				    continue
+	  			elif (x+2)==(len(self.text)):
+				    x=x-1
+				    break
+	  			else:
+				    break
+			elif self.text[x] == '\'':
+	  			if(self.text[x+1] == '"'):
+	  			    continue 
+	  			elif (x+2)==(len(self.text)):
+				    x=x-1
+				    break
+	  			else:
+				    break                                      
+		raise IllegalEscape(self.text[1:x+2])
+} ;  //kết thúc bằng '
+
+
+
+/***************Comment BKIT***************/
+COMMENT: UNTERMINATED_COMMENT '**' -> skip;// .*? matches anything until the first **
+UNTERMINATED_COMMENT: '**' .*?;
+
+
+/*********Unmatch các trường hợp trên**********/
+/***************Identifier BKIT***************/
+fragment LETTER: [a-zA-Z] ;
+IDENTIFIER:  [a-z](LETTER |'_' | [0-9])* ;
+
+WS : [ \t\r\n\f]+ -> skip ; // skip spaces, tabs, newlines
+
+ERROR_CHAR: .;
+
+
+----------Result----------
+testcase 1: PASSED
+testcase 2: PASSED
+testcase 3: PASSED
+testcase 4: PASSED
+testcase 5: PASSED
+testcase 6: PASSED
+testcase 7: PASSED
+testcase 8: PASSED
+testcase 9: PASSED
+testcase 10: PASSED
+testcase 11: PASSED
+testcase 12: PASSED
+testcase 13: PASSED
+testcase 14: PASSED
+testcase 15: PASSED
+testcase 16: PASSED
+testcase 17: PASSED
+testcase 18: PASSED
+testcase 19: PASSED
+testcase 20: PASSED
+testcase 21: PASSED
+testcase 22: PASSED
+testcase 23: PASSED
+testcase 24: PASSED
+testcase 25: PASSED
+testcase 26: PASSED
+testcase 27: PASSED
+testcase 28: PASSED
+testcase 29: PASSED
+testcase 30: PASSED
+testcase 31: PASSED
+testcase 32: PASSED
+testcase 33: PASSED
+testcase 34: PASSED
+testcase 35: PASSED
+testcase 36: PASSED
+testcase 37: PASSED
+testcase 38: PASSED
+testcase 39: PASSED
+testcase 40: PASSED
+testcase 41: PASSED
+testcase 42: PASSED
+testcase 43: PASSED
+testcase 44: PASSED
+testcase 45: PASSED
+testcase 46: PASSED
+testcase 47: PASSED
+testcase 48: PASSED
+testcase 49: PASSED
+testcase 50: PASSED
+testcase 51: PASSED
+testcase 52: PASSED
+testcase 53: PASSED
+testcase 54: PASSED
+testcase 55: PASSED
+testcase 56: FAILED
+testcase 57: PASSED
+testcase 58: PASSED
+testcase 59: PASSED
+testcase 60: FAILED
+testcase 61: PASSED
+testcase 62: PASSED
+testcase 63: PASSED
+testcase 64: FAILED
+testcase 65: PASSED
+testcase 66: PASSED
+testcase 67: PASSED
+testcase 68: PASSED
+testcase 69: PASSED
+testcase 70: PASSED
+testcase 71: PASSED
+testcase 72: PASSED
+testcase 73: PASSED
+testcase 74: PASSED
+testcase 75: PASSED
+testcase 76: PASSED
+testcase 77: PASSED
+testcase 78: PASSED
+testcase 79: PASSED
+testcase 80: PASSED
+testcase 81: PASSED
+testcase 82: PASSED
+testcase 83: PASSED
+testcase 84: PASSED
+testcase 85: PASSED
+testcase 86: PASSED
+testcase 87: PASSED
+testcase 88: PASSED
+testcase 89: PASSED
+testcase 90: PASSED
+testcase 91: PASSED
+testcase 92: PASSED
+testcase 93: PASSED
+testcase 94: PASSED
+testcase 95: PASSED
+testcase 96: PASSED
+testcase 97: PASSED
+testcase 98: PASSED
+testcase 99: PASSED
+testcase 100: PASSED
+testcase 101: PASSED
+testcase 102: PASSED
+testcase 103: PASSED
+testcase 104: PASSED
+testcase 105: PASSED
+testcase 106: PASSED
+testcase 107: PASSED
+testcase 108: PASSED
+testcase 109: PASSED
+testcase 110: PASSED
+testcase 111: PASSED
+testcase 112: PASSED
+testcase 113: PASSED
+testcase 114: PASSED
+testcase 115: PASSED
+testcase 116: PASSED
+testcase 117: PASSED
+testcase 118: PASSED
+testcase 119: PASSED
+testcase 120: PASSED
+testcase 121: PASSED
+testcase 122: PASSED
+testcase 123: PASSED
+testcase 124: PASSED
+testcase 125: PASSED
+testcase 126: PASSED
+testcase 127: PASSED
+testcase 128: PASSED
+testcase 129: PASSED
+testcase 130: PASSED
+testcase 131: PASSED
+testcase 132: PASSED
+testcase 133: PASSED
+testcase 134: PASSED
+testcase 135: PASSED
+testcase 136: PASSED
+testcase 137: PASSED
+testcase 138: PASSED
+testcase 139: PASSED
+testcase 140: PASSED
+testcase 141: PASSED
+testcase 142: PASSED
+testcase 143: PASSED
+testcase 144: PASSED
+testcase 145: PASSED
+testcase 146: PASSED
+testcase 147: PASSED
+testcase 148: PASSED
+testcase 149: PASSED
+testcase 150: PASSED
+testcase 151: PASSED
+testcase 152: PASSED
+testcase 153: PASSED
+testcase 154: PASSED
+testcase 155: PASSED
+testcase 156: PASSED
+testcase 157: PASSED
+testcase 158: PASSED
+testcase 159: PASSED
+testcase 160: PASSED
+testcase 161: PASSED
+testcase 162: PASSED
+testcase 163: PASSED
+testcase 164: PASSED
+testcase 165: PASSED
+testcase 166: PASSED
+testcase 167: PASSED
+testcase 168: PASSED
+testcase 169: PASSED
+testcase 170: PASSED
+testcase 171: PASSED
+testcase 172: PASSED
+testcase 173: PASSED
+testcase 174: PASSED
+testcase 175: PASSED
+testcase 176: PASSED
+testcase 177: PASSED
+testcase 178: PASSED
+testcase 179: PASSED
+testcase 180: PASSED
+testcase 181: PASSED
+testcase 182: PASSED
+testcase 183: PASSED
+testcase 184: PASSED
+testcase 185: PASSED
+testcase 186: PASSED
+testcase 187: FAILED
+testcase 188: PASSED
+testcase 189: PASSED
+testcase 190: PASSED
+testcase 191: PASSED
+testcase 192: PASSED
+testcase 193: PASSED
+testcase 194: PASSED
+testcase 195: PASSED
+testcase 196: PASSED
+testcase 197: PASSED
+testcase 198: PASSED
+testcase 199: PASSED
+testcase 200: PASSED
+
+Total: 196 /200

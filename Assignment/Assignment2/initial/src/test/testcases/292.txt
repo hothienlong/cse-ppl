@@ -1,0 +1,1 @@
+Var: x = 1;Function:fibonaci Parameter:x Body:Returnfibonaci(x-1)+fibonaci(x-2);EndBody.

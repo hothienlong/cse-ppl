@@ -1,0 +1,6 @@
+ Function: multi
+            Parameter: a,b
+            Body:
+                Return a*b;
+            EndBody.
+            

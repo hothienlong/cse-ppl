@@ -1,0 +1,18 @@
+ Function: g5R
+        Body:
+                sum = sum + arrA[i] + arrB[i];
+                            If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                If (nlgt \ 3520) Then
+                    diffLen = len(arrA) - len(arrB);
+                Else
+                    Return y + (multi(x-1, y));
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                EndIf.
+            
+        EndBody. 

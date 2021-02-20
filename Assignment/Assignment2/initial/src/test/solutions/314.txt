@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(a)[],([VarDecl(Id(http),StringLiteral())][Assign(Id(http),CallExpr(Id(require),[Id(http)]))]))])

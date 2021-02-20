@@ -1,0 +1,22 @@
+ Var: ans;
+    Var: x=4;
+    Function: func1
+        Body:
+                For (foo = foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]], foo(a[3][2]) + xyz, a <= 4) Do
+                    barrr(myArr[2][3][4]);
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+            
+                    While func(3) Do
+                        hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                        sum = sum + arrA[i] + arrB[i];
+                    EndWhile.
+                
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    If func1 != ((3-2) == 1+2*test(1)) Then
+                        getArray();
+                    ElseIf barz =/= 3 Then
+                        barrr(myArr[2][3][4]);
+                    EndIf.
+                
+        EndBody. 

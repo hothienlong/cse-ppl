@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(main)[],([VarDecl(Id(r))][Assign(Id(r),StringLiteral(em okok khong lanangtho))]))])

@@ -1,0 +1,7 @@
+ Var: x;
+                    Function: fact
+                    Body:
+                        Return bye;                    
+                        Return 0;
+                        print(arr[2], plsss);
+                    EndBody.

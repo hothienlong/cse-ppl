@@ -1,0 +1,15 @@
+ Var: x=4;
+    Var: c, d[2][4];
+    Function: bar
+        Body:
+                For (barz = 1.2e-1, func(1)[1] * 2, c <. 4.5) Do
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    diffLen = len(arrA) - len(arrB);
+                EndFor.
+            
+                    While 3520 Do
+                        arr = getArrayOfEvenNum();
+                        hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    EndWhile.
+                
+        EndBody. 

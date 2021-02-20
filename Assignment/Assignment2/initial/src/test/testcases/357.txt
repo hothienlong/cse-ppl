@@ -1,0 +1,19 @@
+ Var: ans;
+    Function: foo
+        Body:
+                While 3520 Do
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    Return 1;
+                    diffLen = len(arrA) - len(arrB);
+                EndWhile.
+            
+                    string = "test function with string";
+                    If traiTimBenLe != (3) Then
+                        barrr(myArr[2][3][4]);
+                    ElseIf jasonMraz <=. khiCodonEmnhoai Then
+                        sum = sum + arrA[i] + arrB[i];
+                    EndIf.
+                
+        EndBody. 

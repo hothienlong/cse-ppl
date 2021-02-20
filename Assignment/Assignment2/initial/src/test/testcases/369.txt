@@ -1,0 +1,7 @@
+
+        Function: main
+            Body:
+                Var: r;
+                r = "em okok khong lanangtho";
+            EndBody.
+        

@@ -1,0 +1,25 @@
+ Function: haAnhTuan123
+        Body:
+                    For (adamLevine = foo(thuanNgo), 1231 + -11 == False, func(3)) Do
+                        hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                        While a <= 4 Do
+                    diffLen = len(arrA) - len(arrB);
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    sum = sum + arrA[i] + arrB[i];
+                EndWhile.
+                    EndFor.
+                
+                    While a <= 4 Do
+                        arr = getArrayOfEvenNum();
+                        diffLen = len(arrA) - len(arrB);
+                    EndWhile.
+                
+                Do
+                    tmp = read();
+                    sum = sum + arrA[i] + arrB[i];
+                    diffLen = len(arrA) - len(arrB);
+                While bar[1] EndDo.
+            
+        EndBody. 

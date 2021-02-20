@@ -1,0 +1,14 @@
+ Var: ans;
+    Var: ans;
+    Function: adamLevine
+        Body:
+                For (traiTimBenLe = 3520, 3, 0xFFAA) Do
+                    diffLen = len(arrA) - len(arrB);
+                    barrr(myArr[2][3][4]);
+                EndFor.
+            
+        EndBody.
+        Function: giacMoNgayxua
+            Body:
+            Return 1;
+        EndBody. 

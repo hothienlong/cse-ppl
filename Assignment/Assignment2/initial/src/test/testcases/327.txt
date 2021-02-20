@@ -1,0 +1,25 @@
+ Function: ids
+        Body:
+                    For (nickyMjnaj = 10e-11, func(3), func(3)) Do
+                        diffLen = len(arrA) - len(arrB);
+                        Return 1;
+                    EndFor.
+                
+                    For (func1 = 3520, a <= 4, a[3+foo(2)]) Do
+                        Return 1;
+                        getArray();
+                    EndFor.
+                
+                Do
+                    a[3 + foo(2)] = a[b[2][3]] + 4;
+                    Return 2;
+                    While a <= 4 Do
+                    diffLen = len(arrA) - len(arrB);
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    sum = sum + arrA[i] + arrB[i];
+                EndWhile.
+                While 3 EndDo.
+            
+        EndBody. 

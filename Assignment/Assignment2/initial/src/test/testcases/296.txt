@@ -1,0 +1,8 @@
+ Function: swap
+                    Parameter: a,b
+                        Body:
+                            Var: temp = a; **gan literal ko co id**
+                            a = b;
+                            b = temp;
+                        EndBody.
+                

@@ -1,0 +1,12 @@
+ Function: piano
+        Body:
+                sum = sum + arrA[i] + arrB[i];
+                getArray();
+                If (nguyenHa \ 3520 == 3520) Then
+                    Return y + (multi(x-1, y));
+                Else
+                    diffLen = len(arrA) - len(arrB);
+                    diffLen = len(arrA) - len(arrB);
+                EndIf.
+            
+        EndBody. 

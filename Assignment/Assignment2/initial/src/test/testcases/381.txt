@@ -1,0 +1,15 @@
+ Function: khiCodonEmnhoai
+        Body:
+                Do
+                    string = "test function with string";
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                    isA = True;
+                    smaller = len(arrA);
+                While a <= 4 EndDo.
+            
+                    For (biBe = x + 5 == True, 1.2e-1, 1.2e-1) Do
+                        arr = getArrayOfEvenNum();
+                        x = a+1 < (2 < 3);
+                    EndFor.
+                
+        EndBody. 

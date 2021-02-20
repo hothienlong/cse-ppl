@@ -1,0 +1,5 @@
+ Function: hamso
+                        Body:
+                            x = a[b[c[d]]];
+                        EndBody.
+                

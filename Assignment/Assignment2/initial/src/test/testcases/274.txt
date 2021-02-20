@@ -1,0 +1,8 @@
+Function: bigFunc
+                     Body:
+                         Var: var = var(var[var]);
+
+                         string = "break loop
+ boom";
+                     EndBody.<EOF>
+                 

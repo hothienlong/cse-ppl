@@ -1,0 +1,10 @@
+ Var: ans;
+    Function: func1
+        Body:
+                While c <. 4.5 Do
+                    barrr(myArr[2][3][4]);
+                    string = "test function with string";
+                    sum = sum + arrA[i] + arrB[i];
+                EndWhile.
+            
+        EndBody. 

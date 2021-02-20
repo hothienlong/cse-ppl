@@ -1,0 +1,11 @@
+**
+                    Function: true
+                    Body:
+                       **
+                        Function: hello
+                            Body:
+                                print("Hom nay la mot ngay \nang dep");
+                            EndBody.
+                        **
+                    EndBody.             
+                **

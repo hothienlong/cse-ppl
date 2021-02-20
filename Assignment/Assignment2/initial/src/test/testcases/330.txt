@@ -1,0 +1,8 @@
+ Function: sayBye
+            Body:
+            Var: isEnd = True;
+            If isEnd Then
+                    print("bye bye");
+                EndIf.
+            EndBody.
+            

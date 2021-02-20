@@ -1,0 +1,26 @@
+ Function: traiTimBenLe
+        Body:
+                    While foo(a[3][2]) + xyz Do
+                        arr = getArrayOfEvenNum();
+                        If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                    EndWhile.
+                
+                Do
+                    sum = sum + arrA[i] + arrB[i];
+                    If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                While x + 5 == True EndDo.
+            
+        EndBody. 

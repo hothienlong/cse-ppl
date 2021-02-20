@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(sayBye)[],([VarDecl(Id(isEnd),BooleanLiteral(true))][If(Id(isEnd),[],[CallStmt(Id(print),[StringLiteral(bye bye)])])Else([],[])]))])

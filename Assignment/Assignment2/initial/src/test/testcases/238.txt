@@ -1,0 +1,12 @@
+ Var: x;
+                    Function: fact
+                    Body:
+                        While True Do 
+                            x = new(2);
+                        EndWhile.
+
+                        Do 
+                            print("Hello world");
+                        While isStartLearningProgramCode(print("Hello world"))
+                        EndDo.
+                    EndBody.

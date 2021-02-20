@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(adamLevine)[],([][If(BinaryOp(==,Id(giacMoNgayxua),IntLiteral(100)),[],[Assign(Id(saQe),CallExpr(Id(foo),[Id(thuanNgo)]))])Else([],[])]))])

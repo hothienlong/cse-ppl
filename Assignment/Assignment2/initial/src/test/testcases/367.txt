@@ -1,0 +1,17 @@
+ Var:s, c, d[2][4];
+    Var: ans;
+    Function: khiCodonEmnhoai
+        Body:
+                For (caRot = func(3), a[3+foo(2)], 0xFFAA) Do
+                    getArray();
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+
+                    While foo(thuanNgo) Do
+                        For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                        getArray();
+                    EndWhile.
+
+        EndBody. 

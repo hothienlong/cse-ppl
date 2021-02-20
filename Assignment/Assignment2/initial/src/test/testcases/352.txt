@@ -1,0 +1,19 @@
+ Function: khiCodonEmnhoai
+        Body:
+                While a <= 4 Do
+                    Return 1;
+                    getArray();
+                    If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                EndWhile.
+            
+        EndBody.
+        Function: seeSingShare
+            Body:
+            Return y + (multi(x-1, y));
+        EndBody. 

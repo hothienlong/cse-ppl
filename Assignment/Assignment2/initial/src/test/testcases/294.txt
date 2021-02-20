@@ -1,0 +1,7 @@
+Function: lstSquare
+                    Parameter: n
+                    Body:
+                        If(n == 0) Then
+                            Return arr[null];
+                        Return lstSquare(n-1) + a[n*2];
+                    EndBody.

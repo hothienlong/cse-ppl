@@ -1,0 +1,7 @@
+Function: bigFunc
+                     Body:
+                         con_30_test_case_nua_moi_xong = !hahahahahahaha;
+                         ko = huhuhuhu;
+                         saddddddddddddddd(buon - kozui);
+                     EndBody.
+                 

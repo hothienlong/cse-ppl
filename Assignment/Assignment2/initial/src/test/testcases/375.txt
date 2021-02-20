@@ -1,0 +1,10 @@
+ Var: a[2];
+    Var: ans;
+    Function: cajoon
+        Body:
+                For (jasonMraz = foo(thuanNgo), foo(a[3][2]) + xyz, c <. 4.5) Do
+                    x = a+1 < (2 < 3);
+                    a[2] =foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]];
+                EndFor.
+            
+        EndBody. 

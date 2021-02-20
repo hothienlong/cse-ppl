@@ -1,0 +1,8 @@
+Function: true
+                    Body:
+                        True[3] = False;
+                        a[b[c]][i] = 0;
+                        (True + b*c && !3)[99] = {2};
+                        5[3] = 3[5];
+                    EndBody.
+                    

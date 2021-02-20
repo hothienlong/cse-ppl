@@ -1,0 +1,10 @@
+Function: true
+                    Body:
+                        For(i=2, 2<3, 3) Do
+                            If a == 2 Then
+                                Break;
+                                Continue;
+                            EndIf.
+                        EndFor.
+                        Return ;
+                    EndBody.

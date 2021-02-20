@@ -1,0 +1,19 @@
+ Function: bangKieu1
+        Body:
+                Do
+                    sum = sum + arrA[i] + arrB[i];
+                    hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    a[3 + foo(2)] = a[b[2][3]] + 4;
+                While 3 EndDo.
+            
+                    For (seeSingShare = x + 5 == True, a <= 4, c <. 4.5) Do
+                        a[3 + foo(2)] = a[b[2][3]] + 4;
+                        Return;
+                    EndFor.
+                
+                    While 10e-11 Do
+                        getArray();
+                        Return (ax + by == 0);
+                    EndWhile.
+                
+        EndBody. 

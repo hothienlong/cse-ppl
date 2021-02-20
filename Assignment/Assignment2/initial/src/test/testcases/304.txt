@@ -1,0 +1,10 @@
+ Function: getArray
+            Parameter: arr, size
+            Body:
+
+            EndBody.
+            Function: main
+            Body:
+                getArray();
+            EndBody.
+            

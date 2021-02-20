@@ -1,0 +1,10 @@
+ Var:s, c, d[2][4];
+    Var: ans;
+    Function: caRot
+        Body:
+                For (biBe = 0xFFAA, bar[1], foo(thuanNgo)) Do
+                    diffLen = len(arrA) - len(arrB);
+                    getArray();
+                EndFor.
+            
+        EndBody. 

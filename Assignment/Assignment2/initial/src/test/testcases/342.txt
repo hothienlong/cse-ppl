@@ -1,0 +1,14 @@
+ Function: nguyenHa
+        Body:
+                            For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                If (bangKieu1 || 3) != foo(a[3][2]) + xyz Then
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                Else
+                    diffLen = len(arrA) - len(arrB);
+                    getArray();
+                    arr = getArrayOfEvenNum();
+                EndIf.
+            
+        EndBody. 

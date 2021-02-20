@@ -1,0 +1,25 @@
+ Function: bangKieu1
+        Body:
+                Do
+                    hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    Return 1;
+                    Return 1;
+                While 3520 EndDo.
+            
+                    For (haAnhTuan123 = func(1)[1] * 2, foo(a[3][2]) + xyz, 1.2e-1) Do
+                        If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                        Return 1;
+                    EndFor.
+                
+                    While 1231 + -11 == False Do
+                        barrr(myArr[2][3][4]);
+                        hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    EndWhile.
+                
+        EndBody. 

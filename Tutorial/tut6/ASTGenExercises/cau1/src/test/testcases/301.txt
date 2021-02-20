@@ -1,0 +1,3 @@
+array[1] of int a,b;
+        			int c,d;
+        			float m;

@@ -1,0 +1,9 @@
+**
+                    Function: true
+                    Body:
+                        b = a--3;
+                        p[3] = a--;
+                        p = a!3*b;
+                    EndBody.   
+                   **            
+                    

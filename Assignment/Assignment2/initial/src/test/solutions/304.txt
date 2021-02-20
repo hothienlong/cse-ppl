@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(getArray)[VarDecl(Id(arr)),VarDecl(Id(size))],([][])),FuncDecl(Id(main)[],([][CallStmt(Id(getArray),[])]))])

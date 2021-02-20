@@ -1,0 +1,13 @@
+ Function: nickyMjnaj
+        Body:
+                While 1.2e-1 Do
+                    string = "test function with string";
+                    hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    diffLen = len(arrA) - len(arrB);
+                EndWhile.
+            
+        EndBody.
+        Function: foo
+            Body:
+            getArray();
+        EndBody. 

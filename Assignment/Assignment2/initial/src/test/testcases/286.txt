@@ -1,0 +1,10 @@
+
+                Function: whileEEE
+                Body:
+                    While (((((((((((5+2))))))))))) Do
+                        variable = exp(2)[exp];
+                        madao_minhbeo = (foo() + 2)[0];
+                        out = (out(out(out())))[123];
+                    EndWhile.
+                EndBody.
+                    

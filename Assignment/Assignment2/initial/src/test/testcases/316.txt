@@ -1,0 +1,11 @@
+ Function: product
+            Parameter: n
+            Body:
+                Var: prod = 1.0;
+                While n > 0 Do
+                    prod = prod * n;
+                    n = n - 1;
+                EndWhile.
+                Return prod;
+            EndBody.
+            

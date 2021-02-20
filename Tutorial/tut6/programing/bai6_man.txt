@@ -1,0 +1,41 @@
+class ASTGeneration(MPVisitor):
+    def visitProgram(self,ctx:MPParser.ProgramContext):
+        #program: exp EOF;
+        return ctx.exp().accept(self)
+
+    def visitExp(self,ctx:MPParser.ExpContext):
+        #exp: (term ASSIGN)* term;
+        n = ctx.getChildCount() - 1
+        tail = ctx.getChild(n).accept(self)
+        while n > 0:
+            tail = Binary(ctx.getChild(n - 1).getText(), ctx.getChild(n - 2).accept(self), tail)
+            n -= 2
+        return tail
+
+    def visitTerm(self,ctx:MPParser.TermContext): 
+        #term: factor COMPARE factor | factor;
+        if ctx.getChildCount() == 1:
+            return ctx.factor(0).accept(self)
+        else:
+            return Binary(ctx.COMPARE().getText(), ctx.factor(0).accept(self), ctx.factor(1).accept(self))
+
+    def visitFactor(self,ctx:MPParser.FactorContext):
+        #factor: operand (ANDOR operand)*; 
+        begin = 0
+        end = ctx.getChildCount() - 1
+        head = ctx.getChild(begin).accept(self)
+        while begin < end:
+            head = Binary(ctx.getChild(begin + 1).getText(), head, ctx.getChild(begin + 2).accept(self))
+            begin += 2
+        return head
+
+    def visitOperand(self,ctx:MPParser.OperandContext):
+        #operand: ID | INTLIT | BOOLIT | '(' exp ')'
+        if ctx.ID():
+            return Id(ctx.ID().getText())
+        elif ctx.INTLIT():
+            return IntLiteral(int(ctx.INTLIT().getText()))
+        elif ctx.BOOLIT():
+            return BooleanLiteral(eval(ctx.BOOLIT().getText()))
+        else:
+            return ctx.exp().accept(self)

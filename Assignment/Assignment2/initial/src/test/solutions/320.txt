@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(a)[],([][CallStmt(Id(print),[Id(hello)])]))])

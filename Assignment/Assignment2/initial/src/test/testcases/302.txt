@@ -1,0 +1,23 @@
+ Function: sumArr
+            Parameter:  arrA, arrB
+            Body:
+                Var: diffLen = 0, isA = False, smaller, sum;
+                diffLen = len(arrA) - len(arrB);
+                If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                diffLen = abs(diffLen);
+                For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                For (i = 0, i < diffLen, 1) Do
+                    If isA Then 
+                    Else
+                    EndIf.
+                EndFor.
+            EndBody. 
+            

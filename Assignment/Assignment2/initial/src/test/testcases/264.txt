@@ -1,0 +1,7 @@
+Function: hello
+                    Var: ko = "09051508";
+                    Body:
+                        Var x = 2, y = 3
+                        ppl = p + p + l;
+                    EndBody.
+                

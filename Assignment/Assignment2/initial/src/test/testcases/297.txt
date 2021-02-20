@@ -1,0 +1,10 @@
+ Function: gcd
+                    Parameter: n1, n2
+                        Body:
+                            If(n2 != 0) Then
+                                Return gcd(n2, n1%n2);
+                            Else
+                                Return n1;
+                            EndIf.
+                        EndBody.
+                

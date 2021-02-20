@@ -1,0 +1,15 @@
+ Function: nlgt
+        Body:
+                While 10e-11 Do
+                    If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                EndWhile.
+            
+        EndBody. 

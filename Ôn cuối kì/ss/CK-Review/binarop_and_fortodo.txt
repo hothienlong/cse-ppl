@@ -1,0 +1,67 @@
+		if ast.op == "&&":
+                    op_str=leftCode
+                    labelExit=frame.getNewLabel()
+                    labelpushfalse=frame.getNewLabel()
+                    op_str+=self.emit.emitIFFALSE(labelpushfalse,frame)
+                    op_str+=rightCode
+                    op_str+= self.emit.emitGOTO(labelExit,frame)
+                    op_str+=self.emit.emitLABEL(labelpushfalse,frame)
+                    op_str+=self.emit.emitPUSHICONST(0,frame)
+                    op_str+=self.emit.emitLABEL(labelExit,frame)
+                elif ast.op== "||":
+                    op_str=leftCode
+                    labelExit=frame.getNewLabel()
+                    labelpushtrue=frame.getNewLabel()
+                    op_str+=self.emit.emitIFTRUE(labelpushtrue,frame)
+                    op_str+=rightCode
+                    op_str+=self.emit.emitGOTO(labelExit,frame)
+                    op_str+=self.emit.emitLABEL(labelpushtrue,frame)
+                    op_str+=self.emit.emitPUSHICONST(1,frame)
+                    op_str+=self.emit.emitLABEL(labelExit,frame)
+                    
+                res_type=BoolType()
+
+
+def visitForToDo(self,ast,o):
+        ctxt=o
+        frame=o.frame
+        sym=o.sym
+        frame.enterLoop()
+
+        labelLoop=frame.getNewLabel()
+        labelBreak=frame.getBreakLabel()
+        labelContinue=frame.getContinueLabel()
+        #get index and n to protect them
+        index=frame.getNewIndex()
+        n=frame.getNewIndex()
+        self.visitStatement(ast.expr1,Access(frame,sym,False,True))
+        expr1Code,expr1Type= self.visit(ast.expr1.right,Access(frame,sym,False,True))
+        self.emit.printout(expr1Code)
+        self.emit.printout(self.emit.emitWRITEVAR("index",IntType(),index,frame))
+        expr2Code,expr2Type=self.visit(ast.expr2,Access(frame,sym,False,True))
+        self.emit.printout(expr2Code)
+        self.emit.printout(self.emit.emitWRITEVAR("n",IntType(),n,frame))
+        #Start loop
+        self.emit.printout(self.emit.emitLABEL(labelLoop,frame))
+        self.emit.printout(self.emit.emitREADVAR("index",IntType(),index,frame))
+        self.emit.printout(self.emit.emitREADVAR("n",IntType(),n,frame))
+        self.emit.printout(self.emit.emitREOP("<",IntType(),frame))
+        self.emit.printout(self.emit.emitIFFALSE(labelBreak,frame))
+
+        if type(ast.loop) is BinaryOp:
+            self.visitStatement(ast.loop,Access(frame,sym,False,True))
+        elif type(ast.loop) is CallExpr:
+            self.visit(ast.loop,SubBody(frame,sym))
+        else:
+            self.visit(ast.loop,Access(frame,sym,False,True))
+
+        self.emit.printout(self.emit.emitLABEL(labelContinue,frame))
+        self.emit.printout(self.emit.emitREADVAR("index",IntType(),index,frame))
+        self.emit.printout(self.emit.emitPUSHICONST(1,frame))
+        self.emit.printout(self.emit.emitADDOP("+",IntType(),frame))
+        self.emit.printout(self.emit.emitWRITEVAR("index",IntType(),index,frame))
+        self.emit.printout(self.emit.emitGOTO(labelLoop,frame))
+
+        self.emit.printout(self.emit.emitLABEL(labelBreak,frame))
+        frame.exitLoop()
+        return

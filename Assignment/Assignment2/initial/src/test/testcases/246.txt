@@ -1,0 +1,10 @@
+Function: fail
+                    Body:
+                        If i < 5 Then 
+                            Var: dung = 2;
+                            While (True) Do
+                                error = 3;
+                                Var: sai = 2;
+                            EndWhile.    
+                        EndIf.
+                    EndBody.

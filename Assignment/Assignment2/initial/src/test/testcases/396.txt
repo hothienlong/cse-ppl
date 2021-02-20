@@ -1,0 +1,20 @@
+ Function: giacMoNgayxua
+        Body:
+                    For (caRot = bar[1], 1231 + -11 == False, a[3+foo(2)]) Do
+                        x = a+1 < (2 < 3);
+                        Break;
+                    EndFor.
+                
+                Do
+                    Break;
+                    While a <= 4 Do
+                    diffLen = len(arrA) - len(arrB);
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    sum = sum + arrA[i] + arrB[i];
+                EndWhile.
+                    hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                While func(1)[1] * 2 EndDo.
+            
+        EndBody. 

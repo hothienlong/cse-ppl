@@ -1,0 +1,20 @@
+ Function: caRot
+        Body:
+                    For (piano = func(3), x + 5 == True, func(1)[1] * 2) Do
+                        sum = sum + arrA[i] + arrB[i];
+                        string = "test function with string";
+                    EndFor.
+                
+                Do
+                    While a <= 4 Do
+                    diffLen = len(arrA) - len(arrB);
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    sum = sum + arrA[i] + arrB[i];
+                EndWhile.
+                    string = "test function with string";
+                    barrr(myArr[2][3][4]);
+                While a <= 4 EndDo.
+            
+        EndBody. 

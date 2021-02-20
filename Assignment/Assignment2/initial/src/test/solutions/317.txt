@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(sum)[VarDecl(Id(a)),VarDecl(Id(b))],([][Return(BinaryOp(+.,CallExpr(Id(float_of_int),[Id(a)]),CallExpr(Id(float_of_int),[Id(b)])))]))])

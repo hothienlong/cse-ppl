@@ -1,0 +1,10 @@
+ Var: ans;
+    Var: x=4;
+    Function: khiCodonEmnhoai
+        Body:
+                For (conTho = foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]], func(1)[1] * 2, func(3)) Do
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                EndFor.
+            
+        EndBody. 

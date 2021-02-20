@@ -1,0 +1,9 @@
+Function: true
+                    Body:
+                        If 6 Then 
+                        EndIf.
+                        For(i=2, 2<3, 3) Do
+                            a = 2;
+                        EndFor.
+                        Return ;
+                    EndBody.

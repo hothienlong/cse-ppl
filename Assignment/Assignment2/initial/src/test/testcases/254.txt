@@ -1,0 +1,6 @@
+Function: true
+                    Body:
+                        arr[3][3] = 4[3] + True[3] && !2;
+                        arr = 2 + !{2,2} % "kokoko\ko";
+                    EndBody.               
+                    

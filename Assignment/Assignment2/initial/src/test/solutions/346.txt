@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(cajoon)[],([][While(CallExpr(Id(func),[IntLiteral(3)]),[],[If(BinaryOp(!=,BinaryOp(%,Id(tmp),IntLiteral(2)),IntLiteral(0)),[],[Continue()])Else([],[]),Assign(Id(arr),CallExpr(Id(getArrayOfEvenNum),[])),Assign(Id(tmp),CallExpr(Id(read),[]))])]))])

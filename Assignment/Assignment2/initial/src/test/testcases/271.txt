@@ -1,0 +1,5 @@
+Function: baucu
+                     Body:
+                         t_r_u_m_p = "Make America Great Again";
+                     EndBody.
+                 

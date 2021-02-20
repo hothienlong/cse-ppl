@@ -1,0 +1,18 @@
+ Function: brunoMraz
+        Body:
+                    For (nickyMjnaj = 1231 + -11 == False, foo(a[3][2]) + xyz, a[3+foo(2)]) Do
+                        Return;
+                        diffLen = len(arrA) - len(arrB);
+                    EndFor.
+                
+                Do
+                    While func(3) Do
+                    getArray();
+                    diffLen = len(arrA) - len(arrB);
+                    tmp = read();
+                EndWhile.
+                    x = a+1 < (2 < 3);
+                    arr = getArrayOfEvenNum();
+                While 3 EndDo.
+            
+        EndBody. 

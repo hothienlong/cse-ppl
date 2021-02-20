@@ -1,0 +1,10 @@
+ Var: age;
+                Function: main
+                Body:
+                    write("Nhap tuoi cua ban:");
+                    readln(age);
+                    writeln();
+                    writeln("Your age is: " + age);
+                    readln();
+                EndBody.
+            

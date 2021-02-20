@@ -1,0 +1,14 @@
+ Function: traiTimBenLe
+        Body:
+                diffLen = len(arrA) - len(arrB);
+                If (foo +. func(3)) != func(1)[1] * 2 Then
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                Else
+                                For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    Return y + (multi(x-1, y));
+                    Return 1;
+                EndIf.
+            
+        EndBody. 

@@ -1,0 +1,262 @@
+from functools import reduce
+
+class Type(ABC):
+    pass
+class IntType(Type):
+    pass
+class FloatType(Type):
+    pass
+class BoolType(Type):
+    pass
+class UnknownType(Type):
+    pass
+
+
+class StaticCheck(Visitor):
+    
+
+
+    def visitProgram(self,ctx:Program,o):
+        o = [{}]
+        varenv = reduce(lambda x, y: self.visit(y, x), ctx.decl, o)
+        bodyenv = reduce(lambda x, y: self.visit(y, x), ctx.stmts, varenv)
+ 
+    def visitVarDecl(self,ctx:VarDecl,o):
+        if ctx.name in o[0]:
+            raise Redeclared(ctx)
+        o[0][ctx.name] = UnknownType()
+        return o
+ 
+    def visitBlock(self,ctx:Block,o):
+        o = [{}] + o
+ 
+        varenv = reduce(lambda x, y: self.visit(y, x), ctx.decl, o)
+        bodyenv = reduce(lambda x, y: self.visit(y, x), ctx.stmts, varenv)
+ 
+        return o[1:]
+
+    def visitAssign(self, ctx: Assign, o):
+        tr = self.visit(ctx.rhs, o)
+        tl = self.visit(ctx.lhs, o)
+
+        if(type(tl) is dict):
+            type1 = tl[ctx.e1.name]
+        else:
+            type1 = tl
+
+        if(type(tr) is dict):
+            type2 = tr[ctx.e2.name]
+        else:
+            type2 = tr
+
+        if type1 == UnknownType and type2 == UnknownType:
+            raise TypeCannotBeInferred(ctx)
+
+        if type2 != UnknownType and type1 == UnknownType:
+            # for x in o:
+            #     if ctx.lhs.name in x:
+            #         x[ctx.lhs.name] = tr
+            #         break
+            # tl = tr
+            tl[ctx.lhs.name] = type2
+        if type2 == UnknownType and type1 != UnknownType:
+            # for x in o:
+            #     if ctx.rhs.name in x:
+            #         x[ctx.rhs.name] = tl
+            #         break
+            # tr = tl
+            tr[ctx.rhs.name] = type1
+        if type1 != type2:
+            raise TypeMismatchInStatement(ctx)
+
+        return o
+
+    def visitBinOp(self, ctx: BinOp, o):
+        te1 = self.visit(ctx.e1, o)
+        te2 = self.visit(ctx.e2, o)
+
+        # if type(te1) == UnknownType:
+        #     te1 = self.setType(ctx.op, ctx.e1, o)
+        # if type(te2) == UnknownType:
+        #     te2 = self.setType(ctx.op, ctx.e2, o)
+
+        if (ctx.op in ["+", "-", "*", "/"]):
+            if(type(te1) is dict and type(te1[ctx.e1.name]) == UnknownType):
+                te1[ctx.e1.name] = IntType()
+            if(type(te2) is dict and type(te2[ctx.e2.name]) == UnknownType):
+                te2[ctx.e2.name] = IntType()
+
+            if(type(te1) is dict):
+                type1 = te1[ctx.e1.name]
+            else:
+                type1 = te1
+
+            if(type(te2) is dict):
+                type2 = te2[ctx.e2.name]
+            else:
+                type2 = te2
+
+            if (type1 == IntType and type2 == IntType):
+                return IntType()
+            
+        elif (ctx.op in ["+.", "-.", "*.", "/."]):
+            if(type(te1) is dict and type(te1[ctx.e1.name]) == UnknownType):
+                te1[ctx.e1.name] = FloatType()
+            if(type(te2) is dict and type(te2[ctx.e2.name]) == UnknownType):
+                te2[ctx.e2.name] = FloatType()
+
+            if(type(te1) is dict):
+                type1 = te1[ctx.e1.name]
+            else:
+                type1 = te1
+
+            if(type(te2) is dict):
+                type2 = te2[ctx.e2.name]
+            else:
+                type2 = te2
+
+            if (type1 == FloatType and type2 == FloatType):
+                return FloatType()
+        elif (ctx.op in [">", "="]):
+            if(type(te1) is dict and type(te1[ctx.e1.name]) == UnknownType):
+                te1[ctx.e1.name] = IntType()
+            if(type(te2) is dict and type(te2[ctx.e2.name]) == UnknownType):
+                te2[ctx.e2.name] = IntType()
+
+            if(type(te1) is dict):
+                type1 = te1[ctx.e1.name]
+            else:
+                type1 = te1
+
+            if(type(te2) is dict):
+                type2 = te2[ctx.e2.name]
+            else:
+                type2 = te2
+
+            if (type1 == IntType and type2 == IntType):
+                return BoolType()
+        elif (ctx.op in [">.", "=."]):
+            if(type(te1) is dict and type(te1[ctx.e1.name]) == UnknownType):
+                te1[ctx.e1.name] = FloatType()
+            if(type(te2) is dict and type(te2[ctx.e2.name]) == UnknownType):
+                te2[ctx.e2.name] = FloatType()
+
+            if(type(te1) is dict):
+                type1 = te1[ctx.e1.name]
+            else:
+                type1 = te1
+
+            if(type(te2) is dict):
+                type2 = te2[ctx.e2.name]
+            else:
+                type2 = te2
+
+            if (type1 == FloatType and type2 == FloatType):
+                return BoolType()
+        elif (ctx.op in [">b", "=b", "||", "&&"]):
+            if(type(te1) is dict and type(te1[ctx.e1.name]) == UnknownType):
+                te1[ctx.e1.name] = BoolType()
+            if(type(te2) is dict and type(te2[ctx.e2.name]) == UnknownType):
+                te2[ctx.e2.name] = BoolType()
+
+            if(type(te1) is dict):
+                type1 = te1[ctx.e1.name]
+            else:
+                type1 = te1
+
+            if(type(te2) is dict):
+                type2 = te2[ctx.e2.name]
+            else:
+                type2 = te2
+
+            if (type1 == BoolType and type2 == BoolType):
+                return BoolType()        
+        raise TypeMismatchInExpression(ctx)
+
+    def visitUnOp(self, ctx: UnOp, o):
+        te = self.visit(ctx.e, o)
+        # if type(te) == UnknownType:
+        #     te = self.setType(ctx.op, ctx.e, o)
+
+        if ctx.op == "-" :
+            if(type(te) is dict and type(te[ctx.e]) == UnknownType):
+                te[ctx.e] = IntType()
+
+            if(type(te) is dict):
+                typ = te[ctx.e.name]
+            else:
+                typ = te
+
+            if(typ == IntType):
+                return IntType()
+        elif ctx.op == "-." :
+            if(type(te) is dict and type(te[ctx.e]) == UnknownType):
+                te[ctx.e] = FloatType()
+
+            if(type(te) is dict):
+                typ = te[ctx.e.name]
+            else:
+                typ = te
+
+            if(typ == FloatType):
+                return FloatType()
+        elif ctx.op == "!" :
+            if(type(te) is dict and type(te[ctx.e]) == UnknownType):
+                te[ctx.e] = BoolType()
+
+            if(type(te) is dict):
+                typ = te[ctx.e.name]
+            else:
+                typ = te
+
+            if(typ == BoolType):
+                return BoolType()
+        elif ctx.op == "i2f" :
+            if(type(te) is dict and type(te[ctx.e]) == UnknownType):
+                te[ctx.e] = IntType()
+
+            if(type(te) is dict):
+                typ = te[ctx.e.name]
+            else:
+                typ = te
+
+            if(typ == IntType):
+                return FloatType()
+        elif ctx.op == "floor" :
+            if(type(te) is dict and type(te[ctx.e]) == UnknownType):
+                te[ctx.e] = FloatType()
+
+            if(type(te) is dict):
+                typ = te[ctx.e.name]
+            else:
+                typ = te
+
+            if(typ == FloatType):
+                return IntType()
+        raise TypeMismatchInExpression(ctx)
+
+    def visitIntLit(self, ctx, o):
+        return IntType()
+
+    def visitFloatLit(self, ctx, o):
+        return FloatType()
+
+    def visitBoolLit(self, ctx, o):
+        return BoolType()
+
+    def visitId(self, ctx, o):
+        for arr in o:
+            if ctx.name in arr:
+                return arr #dict
+        raise UndeclaredIdentifier(ctx.name)
+
+    def setType(self, op, e, o):
+        for arr in o:
+            if e.name in arr:
+                if op in ["+", "-", "*", "/", ">", "=", "i2f"]:
+                    arr[e.name] = IntType()
+                elif op in ["+.", "-.", "*.", "/.", ">.", "=.", "floor"]:
+                    arr[e.name] = FloatType()
+                elif op in ["!", "&&","||",">b","=b"]:
+                    arr[e.name] = BoolType()
+                return arr[e.name]

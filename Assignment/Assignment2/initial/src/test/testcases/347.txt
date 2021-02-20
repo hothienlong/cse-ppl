@@ -1,0 +1,11 @@
+ Function: foo
+        Body:
+                While x + 5 == True Do
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    tmp = read();
+                    diffLen = len(arrA) - len(arrB);
+                EndWhile.
+            
+        EndBody. 

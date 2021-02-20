@@ -1,0 +1,6 @@
+Function: borrow
+                    Parameter: n
+                    Body:
+                        fuho(2) ;
+                    EndBody.     
+                

@@ -1,0 +1,129 @@
+#bài 3: Vardecl sẽ ko có khai báo type => các id sẽ ko có type (None)
+# đụng tới id phải dùng suy diễn kiểu
+# nếu visit trả về unknownType thì suy diễn kiểu, 
+# còn nếu có thì kiểm tra có typeMissmatch
+
+class StaticCheck(Visitor):
+
+    #decl:List[VarDecl],stmts:List[Assign]
+    def visitProgram(self,ctx:Program,o):
+        env = [self.visit(vardecl, o) for vardecl in ctx.decl]
+        [self.visit(stmt, env) for stmt in ctx.stmts]
+
+    #name:str
+    def visitVarDecl(self,ctx:VarDecl,o):
+        return {'name' : ctx.name, 'type' : None} #ko khai báo kiểu
+
+    #lhs:Id,rhs:Exp
+    def visitAssign(self,ctx:Assign,o): 
+        rhs = self.visit(ctx.rhs, o)
+        #lhs đc visit sau rhs để phòng trường hợp trong quá trình visit rhs suy diễn đc kiểu của lhs
+        lhs = self.visit(ctx.lhs, o) 
+        
+        if(lhs is None):
+            lhs = self.inferTypeAssign(ctx, ctx.lhs.name, rhs, o)
+        elif(rhs is None):
+            rhs = self.inferTypeAssign(ctx, ctx.rhs.name, lhs, o)
+        elif(lhs != rhs):
+            raise TypeMismatchInStatement(ctx)
+        
+
+    #op:str,e1:Exp,e2:Exp 
+    # #op is +,-,*,/,+.,-.,*.,/., &&,||, >, >., >b, =, =., =b
+    def visitBinOp(self,ctx:BinOp,o):
+        type1 = self.visit(ctx.e1, o)
+        type2 = self.visit(ctx.e2, o)
+        op = ctx.op
+
+        # suy diễn kiểu
+        if(type1 is None and isinstance(ctx.e1, Id)):
+            type1 = self.inferTypeExp(ctx.e1, ctx.op, o)
+        if(type2 is None and isinstance(ctx.e2, Id)):
+            type2 = self.inferTypeExp(ctx.e2, ctx.op, o)
+
+
+        if(op in ['+','-','*','/']):
+            if(type1 == "int" and type2 == "int"):
+                return "int"          
+        elif(op in ['+.','-.','*.','/.']):
+            if(type1 == "float" and type2 == "float"):
+                return "float"
+        elif(op in ['>','=']):
+            if(type1 == "int" and type2 == "int"):
+                return "bool"
+        elif(op in ['>.','=.']):
+            if(type1 == "float" and type2 == "float"):
+                return "bool"
+        elif(op in ['&&','||','>b','=b']):
+            if(type1 == "bool" and type2 == "bool"):
+                return "bool"
+        raise TypeMismatchInExpression(ctx)
+
+
+    #op:str,e:Exp #op is -,-., !,i2f, floor
+    def visitUnOp(self,ctx:UnOp,o):
+        type = self.visit(ctx.e, o)
+        op = ctx.op
+
+        # suy diễn kiểu
+        if(type is None and isinstance(ctx.e, Id)):
+            type = self.inferTypeExp(ctx.e, ctx.op, o)
+
+        if(op == '!'):
+            if(type == "bool"):
+                return "bool"
+        elif(op == '-'):
+            if(type == "int"):
+                return "int"
+        elif(op == '-.'):
+            if(type == "float"):
+                return "float"
+        elif(op == 'i2f'):
+            if(type == "int"):
+                return "float"
+        elif(op == 'floor'):
+            if(type == "float"):
+                return "int"
+        raise TypeMismatchInExpression(ctx) 
+
+
+
+    #val:int
+    def visitIntLit(self,ctx:IntLit,o):
+        return "int"
+
+    #val:float
+    def visitFloatLit(self,ctx,o): 
+        return "float"
+
+    #val:bool
+    def visitBoolLit(self,ctx,o): 
+        return "bool"
+
+    #name:str
+    def visitId(self,ctx,o):
+        for decl in o:
+            if(ctx.name == decl['name']):
+                return decl['type'] #trước và sau suy diễn
+        raise UndeclaredIdentifier(ctx.name)
+
+    def inferTypeExp(self, ctx, op, o): #trường hợp not none sẽ ko cần suy diễn
+        for decl in o:
+            if(ctx.name == decl['name']):
+                if(op in ['+','-','*','/','>','=','i2f']):
+                    decl['type'] = "int"
+                elif(op in ['+.','-.','*.','/.','>.','=.','floor']):
+                    decl['type'] = "float"
+                elif(op in ['!','&&','||','>b','=b']):
+                    decl['type'] = "bool"
+                return decl['type']
+        raise UndeclaredIdentifier(ctx.name)
+
+    def inferTypeAssign(self, ctx, infer_name, infer_type, o):
+        if(infer_type is None):
+            raise TypeCannotBeInferred(ctx)
+        for decl in o:
+            if(decl['name'] == infer_name):
+                decl['type'] = infer_type
+                return decl['type']
+        raise UndeclaredIdentifier(infer_name)

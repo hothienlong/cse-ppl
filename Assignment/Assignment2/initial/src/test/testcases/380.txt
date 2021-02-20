@@ -1,0 +1,20 @@
+ Var: a[2];
+    Var: ans;
+    Function: barz
+        Body:
+                For (cajoon = foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]], 1.2e-1, c <. 4.5) Do
+                    Return 1;
+                    If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                EndFor.
+            
+        EndBody.
+        Function: g5R
+            Body:
+            getArray();
+        EndBody. 

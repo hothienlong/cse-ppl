@@ -1,0 +1,11 @@
+ Function: fibonaci
+                        Body:
+                            Var: t1=0,t2=1;
+                            For(i=1, i<=n, 1) Do
+                                print(t1);
+                                nextTerm = t1+t2;
+                                t1 = t2;
+                                t2 = nextTerm;
+                            EndFor.
+                        EndBody.
+                

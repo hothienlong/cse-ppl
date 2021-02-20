@@ -1,0 +1,7 @@
+Function: true
+                    Body:
+                        Var: a[True] = False;
+                        a[True] = False;
+                        Return ;
+                    EndBody.               
+                    

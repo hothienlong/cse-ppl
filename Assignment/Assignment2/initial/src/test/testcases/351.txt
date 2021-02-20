@@ -1,0 +1,13 @@
+ Function: bar
+        Body:
+                While func(3) Do
+                    diffLen = len(arrA) - len(arrB);
+                    hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    tmp = read();
+                EndWhile.
+            
+        EndBody.
+        Function: jasonMraz
+            Body:
+            diffLen = len(arrA) - len(arrB);
+        EndBody. 

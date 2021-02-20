@@ -1,0 +1,14 @@
+ Var: a[2];
+    Var: ans;
+    Function: biBe
+        Body:
+                For (saQe = 10e-11, a[3+foo(2)], a <= 4) Do
+                    tmp = read();
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+            
+        EndBody.
+        Function: adamLevine
+            Body:
+            arr = getArrayOfEvenNum();
+        EndBody. 

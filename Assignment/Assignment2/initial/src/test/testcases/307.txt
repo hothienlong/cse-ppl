@@ -1,0 +1,16 @@
+ Function : isPrime
+            Parameter: n
+            Body:
+                For (i = 2, (n - 1) \ 2, 1) Do
+                    If(n % i == 0) Then
+                        Return False;
+                    Else
+                        Return True;
+                    EndIf.
+                EndFor.
+            EndBody.
+            Function: main
+            Body:
+                print(isPrime(4));
+            EndBody.
+            

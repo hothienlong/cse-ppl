@@ -1,0 +1,16 @@
+ Function: getArrayOfEvenNum
+            Parameter: arr, size
+            Body:
+                For (i = 0, i < size, 1) Do
+                    tmp = read();
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    arr[i] = read();
+                EndFor.
+                Return arr;
+            EndBody.
+            Function: main
+            Body:
+                Var: arr;
+                arr = getArrayOfEvenNum();
+            EndBody.
+            

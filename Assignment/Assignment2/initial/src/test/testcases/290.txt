@@ -1,0 +1,4 @@
+ While (2) Do
+                        tra = le;
+                        goilagiday = tra + long;
+                    EndWhile.

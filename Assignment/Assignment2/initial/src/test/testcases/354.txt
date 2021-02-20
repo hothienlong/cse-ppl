@@ -1,0 +1,10 @@
+ Var: x=4;
+    Function: bar
+        Body:
+                While c <. 4.5 Do
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                    diffLen = len(arrA) - len(arrB);
+                EndWhile.
+            
+        EndBody. 

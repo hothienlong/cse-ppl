@@ -1,0 +1,12 @@
+
+                Function: noFun
+                Parameter: loop
+                    Body:
+                        Do If 2=2 Then 4=0;
+                            ElseIf 2=2 Then 4=4;
+                            Else Return True;
+                            EndIf.
+                        While 2=/=2;
+                        EndDo. 
+                    EndBody.
+                

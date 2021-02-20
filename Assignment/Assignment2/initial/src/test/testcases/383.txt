@@ -1,0 +1,15 @@
+
+        Var:a[2][3];
+        Var:a[2][3];
+        Var:a[2][3];
+        Function: main
+            Body:
+                For (i=foo(),1==2,129129129) Do
+                    Do 
+                    dosomething();
+                    While 
+                        foo(2+x,4.\.y,fooo())
+                    EndDo.
+                EndFor.
+            EndBody.
+        

@@ -1,0 +1,7 @@
+Function: fail
+                    Body:
+                        If i < 5 Then 
+                            a = 3;
+                            Var: a = 2;
+                        EndIf.
+                    EndBody.

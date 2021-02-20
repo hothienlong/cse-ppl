@@ -1,0 +1,9 @@
+
+                Function: integer
+                Parameter: a,b,c
+                    Body:
+                        Var: a = 0x122;
+                        Var: b = 0o157;
+                        print(a+b);
+                    EndBody.
+                

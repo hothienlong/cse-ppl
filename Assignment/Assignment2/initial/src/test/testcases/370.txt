@@ -1,0 +1,29 @@
+ Var:s, c, d[2][4];
+    Var: ans;
+    Function: aHUhu
+        Body:
+                For (caRot = 1.2e-1, x + 5 == True, foo(a[3][2]) + xyz) Do
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                EndFor.
+            
+                    If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                    If brunoMraz != (func(3)) Then
+                        getArray();
+                    ElseIf haAnhTuan123 != foo Then
+                        If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                    EndIf.
+                
+        EndBody. 

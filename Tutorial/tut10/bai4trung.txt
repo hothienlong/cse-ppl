@@ -1,0 +1,26 @@
+  def visitBinExpr(self,ctx,o):
+            lhs, ltype = self.visit(ctx.e1,o)
+            rhs, rtype = self.visit(ctx.e2,o)
+        
+            if FloatType in [type(ltype),type(rtype)]:
+                mtype = FloatType()
+            else:
+                mtype = IntType()
+            if ctx.op == '/':
+                mtype = FloatType()
+            
+            if type(ltype) != type(mtype):
+                lhs = lhs + self.emit.emitI2F(o.frame)
+            
+            if type(rtype) != type(mtype):
+                rhs = rhs + self.emit.emitI2F(o.frame)
+        
+            if ctx.op in ['+','-']:
+                x = self.emit.emitADDOP(ctx.op,mtype,o.frame)
+                return lhs + rhs + x, mtype
+            if ctx.op in ['*','/']:
+                x = self.emit.emitMULOP(ctx.op,mtype,o.frame)
+                return lhs + rhs + x, mtype
+            if ctx.op in ['>','<','>=','<=','!=','==']:
+                x = self.emit.emitREOP(ctx.op,mtype,o.frame)
+                return lhs + rhs + x, BoolType()

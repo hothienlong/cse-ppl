@@ -1,0 +1,11 @@
+ Function: multi
+            Parameter: x, y
+            Body:
+                Var: ans = 0;
+                Do
+                    ans = ans + y;
+                    x = x - 1;
+                While x > 0
+                EndDo.
+            EndBody.
+            

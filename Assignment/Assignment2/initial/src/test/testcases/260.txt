@@ -1,0 +1,11 @@
+**
+                    Function: true
+                    Body:
+                       **
+                        Function: hello
+                            Body:
+                                print("Hello world");
+                            EndBody.
+                        **
+                    EndBody.             
+                **

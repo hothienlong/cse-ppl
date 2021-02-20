@@ -1,0 +1,76 @@
+class StaticCheck(Visitor):
+    #decl:List[VarDecl],exp:Exp
+    def visitProgram(self,ctx:Program,o):
+        # env = reduce(lambda acc,ele: self.visit(ele,acc),ctx.decl,[]) #list decl
+        # exp = self.visit(ctx.exp, o)
+        self.visit(ctx.exp, ctx.decl) #làm chung cho tất cả exp
+
+    #name:str,typ:Type
+    def visitVarDecl(self,ctx:VarDecl,o):
+        return ctx
+
+    #op:str,e1:Exp,e2:Exp #op is +,-,*,/,&&,||, >, <, ==, or 
+    def visitBinOp(self,ctx:BinOp,o):
+        type1 = self.visit(ctx.e1, o)
+        type2 = self.visit(ctx.e2, o)
+        op = ctx.op
+        if(op in ['+','-','*']):
+            if(type1 == "bool" or type2 == "bool"):
+                raise TypeMismatchInExpression(ctx)
+            if(type1 == "float" or type2 == "float"):
+                return "float"
+            return "int"
+        elif(op == '/'):
+            if(type1 == "bool" or type2 == "bool"):
+                raise TypeMismatchInExpression(ctx)
+            return "float"
+        elif(op in ['>','<','==','!=']):
+            if((type1 == "int" and type2 == "int") or 
+            (type1 == "float" and type2 == "float") or
+            (type1 == "bool" and type2 == "bool")):
+                return "bool"
+            raise TypeMismatchInExpression(ctx)
+        elif(op in ['&&','||']):
+            if(type1 == "bool" and type2 == "bool"):
+                return "bool"
+            raise TypeMismatchInExpression(ctx)
+
+    #op:str,e:Exp #op is -, !
+    def visitUnOp(self,ctx:UnOp,o):
+        type = self.visit(ctx.e, o)
+        op = ctx.op
+        if(op == '!'):
+            if(type == "bool"):
+                return "bool"
+            raise TypeMismatchInExpression(ctx)
+        elif(op == '-'):
+            if(type == "int"):
+                return "int"
+            if(type == "float"):
+                return "float"
+            raise TypeMismatchInExpression(ctx) 
+
+    #val:int
+    def visitIntLit(self,ctx:IntLit,o):
+        return "int"
+
+    #val:float
+    def visitFloatLit(self,ctx,o):
+        return "float"
+
+    #val:bool
+    def visitBoolLit(self,ctx,o):
+        return "bool"
+
+    #name:str
+    def visitId(self,ctx,o): #kiểu id (đc sử dụng lại biến đã khai báo) sẽ chuyển hóa về các kiểu int, float , bool
+        for decl in o:
+            if(ctx.name == decl.name):
+                type = decl.typ                 
+                if(isinstance(type,IntType)):   # Var: x = 2; => Vardecl(x,IntType)
+                    return "int"
+                elif(isinstance(type,FloatType)):
+                    return "float"
+                else:
+                    return "bool"
+        raise UndeclaredIdentifier(ctx.name)

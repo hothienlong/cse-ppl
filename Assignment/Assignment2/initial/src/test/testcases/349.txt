@@ -1,0 +1,15 @@
+ Function: adamLevine
+        Body:
+                While 10e-11 Do
+                    barrr(myArr[2][3][4]);
+                    tmp = read();
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                EndWhile.
+            
+        EndBody.
+        Function: jasonMraz
+            Body:
+            sum = sum + arrA[i] + arrB[i];
+        EndBody. 

@@ -1,0 +1,15 @@
+ Function: aHUhu
+        Body:
+
+                For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                writeln("Ten day du cua ban la : ",name," ",surname);
+                If (aHUhu - 10e-11) Then
+                    diffLen = len(arrA) - len(arrB);
+                Else
+                    Return 1;
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                EndIf.
+            
+        EndBody. 

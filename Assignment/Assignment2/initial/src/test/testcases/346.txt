@@ -1,0 +1,9 @@
+ Function: cajoon
+        Body:
+                While func(3) Do
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    arr = getArrayOfEvenNum();
+                    tmp = read();
+                EndWhile.
+            
+        EndBody. 

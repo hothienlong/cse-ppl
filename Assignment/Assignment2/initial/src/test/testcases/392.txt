@@ -1,0 +1,13 @@
+ Function: jasonMraz
+        Body:
+                Do
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    diffLen = len(arrA) - len(arrB);
+                While c <. 4.5 EndDo.
+            
+        EndBody. 

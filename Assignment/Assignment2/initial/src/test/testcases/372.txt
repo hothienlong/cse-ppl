@@ -1,0 +1,22 @@
+ Var: a[2];
+    Var: a[2];
+    Function: func1
+        Body:
+                For (brunoMraz = foo(a[3][2]) + xyz, foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]], foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]]) Do
+                    getArray();
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                EndFor.
+            
+        EndBody.
+        Function: brunoMraz
+            Body:
+            While a <= 4 Do
+                    diffLen = len(arrA) - len(arrB);
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    sum = sum + arrA[i] + arrB[i];
+                EndWhile.
+        EndBody. 

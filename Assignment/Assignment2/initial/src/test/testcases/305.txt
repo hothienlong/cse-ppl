@@ -1,0 +1,14 @@
+ Function: getArray
+            Parameter: arr, size[4]
+            Body:
+                For (i = 0, i < size, 1) Do
+                    arr[i] = read();
+                EndFor.
+                Return arr;
+            EndBody.
+            Function: main
+            Body:
+                Var: arr;
+                arr = getArray();
+            EndBody.
+            

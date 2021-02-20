@@ -1,0 +1,10 @@
+ Function: sayBye
+            Parameter: x, a[2][1]
+            Body:
+            Var: isEnd = True;
+            x = x + 5 == True;
+            If isEnd Then
+                    print("bye bye");
+                EndIf.
+            EndBody.
+            

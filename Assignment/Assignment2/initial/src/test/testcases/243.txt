@@ -1,0 +1,5 @@
+Function: fail
+                    Body:
+                        str = "str1" + "str2";
+                        arr = {2,4} \. {2.2,3,5} * "ac" + i;
+                    EndBody.

@@ -1,0 +1,7 @@
+ Function: adamLevine
+        Body:
+            If giacMoNgayxua == 100 Then
+                saQe = foo(thuanNgo);
+            EndIf.
+            
+        EndBody. 

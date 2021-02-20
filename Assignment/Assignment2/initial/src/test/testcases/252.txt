@@ -1,0 +1,5 @@
+Function: true
+                    Body:
+                        foo(2)[3] = 2;
+                    EndBody.
+                    

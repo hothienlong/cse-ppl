@@ -1,0 +1,10 @@
+ Function: func
+                        Body:
+                            a = (1+2)<4;
+                            a = -1; 
+                            b = -0XAF;
+                            c = -1.e3;
+                            a[3] = {"abc", True, -1.e5}; 
+                            a[True] = False;
+                        EndBody.
+                

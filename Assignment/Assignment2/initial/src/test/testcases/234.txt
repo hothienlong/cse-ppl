@@ -1,0 +1,5 @@
+ Var: x;
+                    Function: fact
+                    Parameter: p
+                    Body:
+                    EndBody.

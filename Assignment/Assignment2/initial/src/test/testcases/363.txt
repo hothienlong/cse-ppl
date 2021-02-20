@@ -1,0 +1,19 @@
+ Var: a[2];
+    Var:s, c, d[2][4];
+    Function: giacMoNgayxua
+        Body:
+                For (ids = func(3), func(3), a <= 4) Do
+                    x = (a+1 < 2) < 3;
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+            
+                    diffLen = len(arrA) - len(arrB);
+                    If hmmOkmsa <= (foo(thuanNgo)) Then
+                        For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    ElseIf seeSingShare <=. func(1)[1] * 2 Then
+                        hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    EndIf.
+                
+        EndBody. 

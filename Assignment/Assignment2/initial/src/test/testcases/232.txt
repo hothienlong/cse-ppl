@@ -1,0 +1,16 @@
+ Var: x;
+                    Function: fact
+                    Parameter: p
+                    Body:
+                        If 2+3 *4 Then 
+                            print();
+                        ElseIf valueOfFoo(2) Then
+                            printf();
+                        Else 
+                            boolean();
+                            cout(hello);
+                        EndIf.
+                        For (i = 0, i < 10, 2) Do
+                            writeln(i);
+                        EndFor.
+                    EndBody.

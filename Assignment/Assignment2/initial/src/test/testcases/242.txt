@@ -1,0 +1,7 @@
+Function: fail
+                    Body:
+                        While (i < 5) Do
+                            a[fail(0, -0.2) && index[2]] = b +. 1.0;
+                            a = {2,2};
+                        EndWhile.
+                    EndBody.

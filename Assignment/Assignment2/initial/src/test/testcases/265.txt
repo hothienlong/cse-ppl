@@ -1,0 +1,5 @@
+Function: BigFunc
+                    Body:
+                        Return "WE L O S S";
+                    EndBody.
+                

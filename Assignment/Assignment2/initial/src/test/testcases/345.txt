@@ -1,0 +1,18 @@
+ Function: khiCodonEmnhoai
+        Body:
+                hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                If (seeSingShare + a[3+foo(2)]) > 10e-11 Then
+                    If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                Else
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                    getArray();
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                EndIf.
+            
+        EndBody. 

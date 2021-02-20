@@ -1,0 +1,12 @@
+**
+                    Function: true
+                    Body:
+                       **
+                        Function: hello
+                            Body:
+                                print("Hom nay la mot ngay 
+ang dep");
+                            EndBody.
+                        **
+                    EndBody.             
+                **

@@ -1,0 +1,21 @@
+class ASTGeneration(MPVisitor):
+
+    def visitProgram(self,ctx:MPParser.ProgramContext):
+        #program: vardecl+ EOF;
+        return Program([x for decl in ctx.vardecl() for x in decl.accept(self)])
+
+    def visitVardecl(self,ctx:MPParser.VardeclContext): 
+        #vardecl: mptype ids ';' ;
+        return [VarDecl(id, ctx.mptype().accept(self)) for id in ctx.ids().accept(self)]
+
+    def visitMptype(self,ctx:MPParser.MptypeContext):
+        #mptype: INTTYPE | FLOATTYPE;
+        if ctx.INTTYPE():
+            return IntType()
+        else:
+            return FloatType()
+
+    def visitIds(self,ctx:MPParser.IdsContext):
+        #ids: ID (',' ID)*;
+        # print([Id(id.getText()) for id in ctx.ID()][0])
+        return [Id(id.getText()) for id in ctx.ID()]

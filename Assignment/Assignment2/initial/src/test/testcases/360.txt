@@ -1,0 +1,12 @@
+ Var: c, d[2][4];
+    Function: jasonMraz
+        Body:
+                While a <= 4 Do
+                    diffLen = len(arrA) - len(arrB);
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    sum = sum + arrA[i] + arrB[i];
+                EndWhile.
+            
+        EndBody. 

@@ -1,0 +1,20 @@
+ Function: brunoMraz
+        Body:
+                            If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                If tmp % 2 != 0 Then Continue; EndIf.
+                If (jasonMraz -. 1.2e-1) Then
+                    sum = sum + arrA[i] + arrB[i];
+                Else
+                                For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    string = "test function with string";
+                EndIf.
+            
+        EndBody. 

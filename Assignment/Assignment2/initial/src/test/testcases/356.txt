@@ -1,0 +1,10 @@
+ Var: ans;
+    Function: bangKieu1
+        Body:
+                While bar[1] Do
+                    Return 1;
+                    Return 1;
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                EndWhile.
+            
+        EndBody. 

@@ -1,0 +1,11 @@
+Function: elliot_edison
+                     Body:
+                         Var: some_times_I_dream_of_saving_the_world;
+                         we_are_fsosiety = mR_roBOt;
+                         dark_army = mrRoBot + "Tyrell is alive";
+                         hello("Did you forgot who i am?");
+                         "404 Not Found"
+                         **What...?**
+                         Hello. whiteRose_hacktime();
+                     EndBody.
+                 

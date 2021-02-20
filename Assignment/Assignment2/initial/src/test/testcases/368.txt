@@ -1,0 +1,28 @@
+ Var:s, c, d[2][4];
+    Var: ans;
+    Function: giacMoNgayxua
+        Body:
+                For (foo = 1.2e-1, 1231 + -11 == False, 1231 + -11 == False) Do
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+
+                    While x + 5 == True Do
+                        diffLen = len(arrA) - len(arrB);
+                        string = "test function with string";
+                    EndWhile.
+
+                    a[2] =foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]];
+                    If nickyMjnaj == (a[3+foo(2)]) Then
+                        tmp = read();
+                    ElseIf guitar <. ((3-2) == 1+2*test(1)) Then
+                        While func(3) Do
+                    getArray();
+                    diffLen = len(arrA) - len(arrB);
+                    tmp = read();
+                EndWhile.
+                    EndIf.
+
+        EndBody. 

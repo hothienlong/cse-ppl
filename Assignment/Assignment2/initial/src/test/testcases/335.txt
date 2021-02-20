@@ -1,0 +1,9 @@
+ Function: hmmOkmsa
+        Body:
+                Do
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                    string = "test function with string";
+                    arr = getArrayOfEvenNum();
+                While x + 5 == True EndDo.
+            
+        EndBody. 

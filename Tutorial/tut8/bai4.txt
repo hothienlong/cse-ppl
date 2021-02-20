@@ -1,0 +1,39 @@
+from functools import reduce
+class StaticCheck(Visitor):
+
+    def visitProgram(self,ctx:Program,o:object):
+        o = [[]]
+        reduce(lambda acc, ele: self.visit(ele, acc), ctx.decl, o)
+
+    def visitVarDecl(self,ctx:VarDecl,o:object):
+        if ctx.name in o[0]:
+            raise RedeclaredVariable(ctx.name)
+        o[0].append(ctx.name)
+        return o
+
+    def visitConstDecl(self,ctx:ConstDecl,o:object):
+        if ctx.name in o[0]:
+            raise RedeclaredConstant(ctx.name)
+        o[0].append(ctx.name)
+        return o
+        
+    def visitFuncDecl(self,ctx:FuncDecl,o:object):
+        if ctx.name in o[0]:
+            raise RedeclaredFunction(ctx.name)
+        o[0].append(ctx.name)
+        new_env = reduce(lambda acc, ele: self.visit(ele, acc), ctx.param + ctx.body[0] + ctx.body[1], [[]] + o)
+        return new_env[1:]
+
+    def visitIntType(self,ctx:IntType,o:object):pass
+
+    def visitFloatType(self,ctx:FloatType,o:object):pass
+
+    def visitIntLit(self,ctx:IntLit,o:object):
+        return o
+
+    def visitId(self,ctx:Id,o:object):
+        for lstSymbol in o:
+            for symbol in lstSymbol:
+                if symbol == ctx.name:
+                    return o
+        raise UndeclaredIdentifier(ctx.name)

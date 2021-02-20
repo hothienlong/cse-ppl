@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(adamLevine)[],([][Dowhile([],[Assign(Id(diffLen),BinaryOp(-,CallExpr(Id(len),[Id(arrA)]),CallExpr(Id(len),[Id(arrB)]))),CallStmt(Id(getArray),[]),Assign(Id(sum),BinaryOp(+,BinaryOp(+,Id(sum),ArrayCell(Id(arrA),[Id(i)])),ArrayCell(Id(arrB),[Id(i)])))],BinaryOp(+,CallExpr(Id(foo),[ArrayCell(Id(a),[IntLiteral(3),IntLiteral(2)])]),Id(xyz)))]))])

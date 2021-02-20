@@ -1,0 +1,5 @@
+ Function: body
+                        Body:
+                            a[3] = arr[b[2][3]] + 4;
+                        EndBody.
+                

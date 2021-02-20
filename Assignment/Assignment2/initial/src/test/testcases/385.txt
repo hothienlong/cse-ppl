@@ -1,0 +1,9 @@
+ Function: adamLevine
+        Body:
+                Do
+                    diffLen = len(arrA) - len(arrB);
+                    getArray();
+                    sum = sum + arrA[i] + arrB[i];
+                While foo(a[3][2]) + xyz EndDo.
+            
+        EndBody. 

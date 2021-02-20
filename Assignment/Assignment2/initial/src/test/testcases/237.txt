@@ -1,0 +1,12 @@
+ Var: x;
+                    Function: fact
+                    Body:
+                        For(arr = 1, 1<2, 2) Do
+                            print(arr_);
+                        EndFor.
+                        Continue;
+
+                        If 1<2 Then a=2;
+                        Else 
+                        EndIf.
+                    EndBody.

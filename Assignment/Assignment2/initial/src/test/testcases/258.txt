@@ -1,0 +1,7 @@
+**
+                    Function: true
+                    Body:
+                       b = a--3; ** Var: b = 3; **
+                    EndBody.   
+                   **            
+                    

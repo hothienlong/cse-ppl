@@ -1,0 +1,15 @@
+ Function: ids
+        Body:
+                    For (khiCodonEmnhoai = a <= 4, 0xFFAA, 1231 + -11 == False) Do
+                        sum = sum + arrA[i] + arrB[i];
+                        sum = sum + arrA[i] + arrB[i];
+                    EndFor.
+                
+                Do
+                    barrr(myArr[2][3][4]);
+                    isA = True;
+                    smaller = len(arrA);
+                    diffLen = len(arrA) - len(arrB);
+                While a[3+foo(2)] EndDo.
+            
+        EndBody. 

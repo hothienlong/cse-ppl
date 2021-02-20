@@ -1,0 +1,8 @@
+ Function: khabanh
+                        Body:
+                            cungkhaduoi = "1000 dong code, cuoi cung cung duoc ngu:((";
+                            wait();
+                            vancon(mot,cau,a[o[kia][huhu]]);
+                            conmetmoiconmetmoilam_me_a(23*h);
+                        EndBody.
+                

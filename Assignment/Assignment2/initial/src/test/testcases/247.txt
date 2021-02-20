@@ -1,0 +1,4 @@
+Function: idk
+                    Body:
+                        arr[0x233] = arr[0o23] + arr[foo(12)];
+                    EndBody.

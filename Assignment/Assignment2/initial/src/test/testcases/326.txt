@@ -1,0 +1,14 @@
+ Function: nickyMjnaj
+        Body:
+                    For (seeSingShare = bar[1], 3520, 0xFFAA) Do
+                        writeln("Ten day du cua ban la : ",name," ",surname);
+                        a[3 + foo(2)] = a[b[2][3]] + 4;
+                    EndFor.
+                
+                Do
+                    barrr(myArr[2][3][4]);
+                    Return (ax + by == 0);
+                    If tmp % 2 != 0 Then Continue; EndIf.
+                While foo(thuanNgo) EndDo.
+            
+        EndBody. 

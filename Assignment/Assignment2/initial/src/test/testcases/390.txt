@@ -1,0 +1,15 @@
+ Function: hmmOkmsa
+        Body:
+                Do
+                    Continue;
+                    For (i = 0, i < smaller, 1) Do
+                    sum = sum + arrA[i] + arrB[i];
+                EndFor.
+                    While func(3) Do
+                    getArray();
+                    diffLen = len(arrA) - len(arrB);
+                    tmp = read();
+                EndWhile.
+                While 3 EndDo.
+            
+        EndBody. 

@@ -1,0 +1,6 @@
+ Function: sum
+            Parameter: a, b
+            Body:
+                Return float_of_int(a) +. float_of_int(b);
+            EndBody.
+            

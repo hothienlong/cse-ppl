@@ -1,0 +1,9 @@
+
+                Function: whileEEE
+                Body:
+                    While () Do
+                        tra = le;
+                        goilagiday = tra + long;
+                    EndWhile.
+                EndBody.
+                    

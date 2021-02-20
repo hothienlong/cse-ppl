@@ -1,0 +1,16 @@
+ Var: x;
+                    Function: fact
+                        Parameter: n
+                        Body:
+                            If n == 0 Then
+                                Return 1;
+                            Else
+                                Return n * fact (n - 1);
+                            EndIf.
+                        EndBody.
+
+                    Function: main
+                        Body:
+                        x = 10;
+                        fact (x);
+                        EndBody.

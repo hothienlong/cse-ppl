@@ -1,0 +1,1 @@
+Program([VarDecl(Id(s)),VarDecl(Id(c)),VarDecl(Id(d),[2,4]),VarDecl(Id(ans)),FuncDecl(Id(caRot)[],([][For(Id(biBe),IntLiteral(65450),ArrayCell(Id(bar),[IntLiteral(1)]),CallExpr(Id(foo),[Id(thuanNgo)]),[],[Assign(Id(diffLen),BinaryOp(-,CallExpr(Id(len),[Id(arrA)]),CallExpr(Id(len),[Id(arrB)]))),CallStmt(Id(getArray),[])])]))])

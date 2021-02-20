@@ -1,0 +1,1 @@
+Program([VarDecl(Id(age)),FuncDecl(Id(main)[],([][CallStmt(Id(write),[StringLiteral(Nhap tuoi cua ban:)]),CallStmt(Id(readln),[Id(age)]),CallStmt(Id(writeln),[]),CallStmt(Id(writeln),[BinaryOp(+,StringLiteral(Your age is: ),Id(age))]),CallStmt(Id(readln),[])]))])

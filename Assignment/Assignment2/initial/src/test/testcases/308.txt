@@ -1,0 +1,13 @@
+ Var: name, surname;
+                Function: main
+                Body:
+                    write("Nhap ten cua ban:");
+                    readln(name);
+                    write("Nhap ho cua ban:");
+                    readln(surname);
+                    writeln();
+                    writeln();
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                    readln();
+                EndBody.
+            

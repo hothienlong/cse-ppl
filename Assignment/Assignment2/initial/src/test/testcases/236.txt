@@ -1,0 +1,7 @@
+ Var: x;
+                    Function: fact
+                    Body:
+                        For(arr[] = 1, 1<2, 2)
+                            print(arr);
+                        EndFor.
+                    EndBody.

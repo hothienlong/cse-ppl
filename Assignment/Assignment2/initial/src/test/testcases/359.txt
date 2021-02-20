@@ -1,0 +1,10 @@
+ Var: x=4;
+    Function: brunoMraz
+        Body:
+                While foo(a[3][2]) + xyz Do
+                    getArray();
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                    writeln("Ten day du cua ban la : ",name," ",surname);
+                EndWhile.
+            
+        EndBody. 

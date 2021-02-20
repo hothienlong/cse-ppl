@@ -1,0 +1,14 @@
+ Function: barz
+        Body:
+                    For (thanhToan = a <= 4, (3-2) == 1+2*test(1), func(3)) Do
+                        string = "test function with string";
+                        If tmp % 2 != 0 Then Continue; EndIf.
+                    EndFor.
+                
+                Do
+                    string = "test function with string";
+                    hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    Return y + (multi(x-1, y));
+                While 0xFFAA EndDo.
+            
+        EndBody. 

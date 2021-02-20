@@ -1,0 +1,10 @@
+ Var:s, c, d[2][4];
+    Var: x=4;
+    Function: foo
+        Body:
+                For (jasonMraz = bar[1], 0xFFAA, func(3)) Do
+                    hehe = (foo(3)[3*3-1][22] != xyA) <=. 3.234;
+                    Return y + (multi(x-1, y));
+                EndFor.
+            
+        EndBody. 

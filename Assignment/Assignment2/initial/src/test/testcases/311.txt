@@ -1,0 +1,9 @@
+ Function: multi
+            Parameter: x, y
+            Body:
+                If x == 1 Then Return y;
+                Else
+                    Return y + (multi(x-1, y));
+                EndIf.
+            EndBody.
+            

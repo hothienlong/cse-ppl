@@ -1,0 +1,8 @@
+
+                Function: whileEEE
+                Body:
+                    While (((((((((((5+2))))))))))) Do
+                        Return 0;
+                    EndWhile.
+                EndBody.
+                    

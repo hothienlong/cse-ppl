@@ -1,0 +1,16 @@
+ Var:s, c, d[2][4];
+    Var: a[2];
+    Function: biBe
+        Body:
+                For (aHUhu = 3, 3, (3-2) == 1+2*test(1)) Do
+                    If diffLen > 0 Then 
+                    isA = True; 
+                    smaller = len(arrA);
+                Else 
+                    isA = False; 
+                    smaller = len(arrB);
+                EndIf.
+                    a[2] =foo(3) + bar(a[3]) =/= a[3][3][b[2][2][7]];
+                EndFor.
+            
+        EndBody. 

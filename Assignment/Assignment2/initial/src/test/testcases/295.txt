@@ -1,0 +1,15 @@
+ Function: myFunc
+                        Body:
+                            Return xmu2;
+                        EndBody.
+
+                    Function: highOrderSquare
+                    Parameter: n
+                        Body:
+                            lstSquare = list[];
+                            For(Var: i=1, i<=n, 1) Do
+                                lstSquare.append(i);
+                            EndFor.
+                            Return list(map(myFunc, lstSquare));
+                        EndBody.
+                

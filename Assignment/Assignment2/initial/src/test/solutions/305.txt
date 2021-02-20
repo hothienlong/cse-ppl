@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(getArray)[VarDecl(Id(arr)),VarDecl(Id(size),[4])],([][For(Id(i),IntLiteral(0),BinaryOp(<,Id(i),Id(size)),IntLiteral(1),[],[Assign(ArrayCell(Id(arr),[Id(i)]),CallExpr(Id(read),[]))]),Return(Id(arr))])),FuncDecl(Id(main)[],([VarDecl(Id(arr))][Assign(Id(arr),CallExpr(Id(getArray),[]))]))])

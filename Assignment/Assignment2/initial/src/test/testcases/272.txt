@@ -1,0 +1,15 @@
+Function: trituenhantao
+                     Body:
+                         If exp Then
+                             If pass_turing Then
+                                 If fake_human_success Then
+                                     print("I am AI");
+                                 ElseIf confirm_captcha Then
+                                     print("I not robot");
+                                 Else
+                                     print("Cach mang 4.0");
+                                 EndIf.
+                             EndIf.
+                         EndIf.
+                     EndBody.
+                 

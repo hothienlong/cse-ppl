@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(isPrime)[VarDecl(Id(n))],([][For(Id(i),IntLiteral(2),BinaryOp(\,BinaryOp(-,Id(n),IntLiteral(1)),IntLiteral(2)),IntLiteral(1),[],[If(BinaryOp(==,BinaryOp(%,Id(n),Id(i)),IntLiteral(0)),[],[Return(BooleanLiteral(false))])Else([],[Return(BooleanLiteral(true))])])])),FuncDecl(Id(main)[],([][CallStmt(Id(print),[CallExpr(Id(isPrime),[IntLiteral(4)])])]))])
