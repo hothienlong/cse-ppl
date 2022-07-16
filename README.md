@@ -1,7 +1,7 @@
 # Principles of Programming Language - HCMUT
 Môn Nguyên lý ngôn ngữ lập trình - Trường Đại học Bách Khoa HCM.
 ## Reference Video Course
-[Tổng hợp clip thầy Nguyễn Hứa Phùng](https://www.youtube.com/channel/UC2O3XSSQCgHTn0xQvgGlg-w/playlists)
+[Tổng hợp clip thầy Nguyễn Hứa Phùng](https://www.youtube.com/playlist?list=PLinz4V0b9HHH_QIpbQ-DFLgNU4JJdcj4N)
 
 ## Tables of Contents
 
